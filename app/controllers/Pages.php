@@ -32,15 +32,6 @@ class Pages extends Controller{
 
               $this->view('pages/search', $data);
        }
-
-       public function createMod(){
-
-              $data = [
-                     'title' => 'Create a new moderator'
-              ];
-
-              $this->view('pages/createMod', $data);
-       }
 }
 
 ?>

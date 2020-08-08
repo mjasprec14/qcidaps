@@ -27,7 +27,7 @@
                      <a class="nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>
               </li>
               <li class="nav-item">
-                     <a class="nav-link" href="<?php echo URLROOT; ?>/users/createMod">Create moderator</a>
+                     <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Create Moderator</a>
               </li>
        </ul>
     
