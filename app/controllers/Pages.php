@@ -8,26 +8,38 @@ class Pages extends Controller{
        public function index(){
 
               $data = [
-                     'title' => 'QCIDAPS HOMEPAGE'
+                     'title' => 'QCIDAPS HOMEPAGE',
+                     'description' => 'An application for QCIDAPS'
               ];
 
               $this->view('pages/index', $data);
        }
 
        public function create(){
-              $this->view('pages/create');
+
+              $data = [
+                     'title' => 'Create new profile'
+              ];
+
+              $this->view('pages/create', $data);
        }
 
-       public function update(){
-              $this->view('pages/update');
-       }
+       public function search(){
 
-       public function delete(){
-              $this->view('pages/delete');
+              $data = [
+                     'title' => 'Search a profile'
+              ];
+
+              $this->view('pages/search', $data);
        }
 
        public function createMod(){
-              $this->view('pages/createMod');
+
+              $data = [
+                     'title' => 'Create a new moderator'
+              ];
+
+              $this->view('pages/createMod', $data);
        }
 }
 

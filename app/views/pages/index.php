@@ -1,5 +1,10 @@
 <?php require_once APPROOT . '/views/inc/header.php'; ?>
 
-<h1><?php echo $data['title']; ?></h1>
+       <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+                     <h2 class="display-5"><?php echo $data['title']; ?></h2>
+                     <p class="lead"><?php echo $data['description']; ?></p>
+              </div>
+       </div>
 
 <?php require_once APPROOT . '/views/inc/footer.php'; ?>
