@@ -57,6 +57,8 @@ class Users extends Controller{
                             $data['employee_id_err'] = 'Employee ID must be atleast 8 characters';
                      }
 
+                     
+
                      if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) && empty($data['employee_id_err'])){
                             
                             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
@@ -111,8 +113,23 @@ class Users extends Controller{
                             $data['password_err'] = 'Please enter password';
                      }
 
+                     if($this->userModel->findUserByEmail($data['email'])){
+
+                     } else {
+                            $data['email_err'] = 'No user found';
+                     }
+
                      if(empty($data['email_err']) && empty($data['password_err'])){
-                            die('Success');
+                            
+                            $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+
+                            if($loggedInUser){
+                                   die('USER FOUND');
+                            }else{
+                                   $data['password_err'] = 'Password incorrect';
+
+                                   $this->view('users/login', $data);
+                            }
                      }else {
                             $this->view('users/login', $data);
                      }

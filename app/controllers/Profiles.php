@@ -41,6 +41,15 @@ class Profiles extends Controller {
                             $data['middle_name_err'] = 'Please provide full middle name';
                      }
 
+                     
+
+                     if($this->userModel->existingProfile($data)){
+                            $profileExist = $this->userModel->existingProfile($data);
+                            $errMsg = 'Existing profile<br> Control No: ' . $profileExist->control_no . '<br>Name: ' . $profileExist->last_name . ', ' . $profileExist->first_name;
+
+                            flash('register_success', $errMsg, 'alert alert-danger');
+                     }
+
                      if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err'])){
                             print_r($data);
                             

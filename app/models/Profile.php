@@ -23,6 +23,23 @@ class Profile{
                      return false;
               }
        }
+
+       public function existingProfile($data){
+              $this->db->query('SELECT * FROM profiles WHERE last_name = :last_name AND first_name = :first_name AND middle_name = :middle_name');
+              $this->db->bind(':last_name', $data['last_name']);
+              $this->db->bind(':first_name', $data['first_name']);
+              $this->db->bind(':middle_name', $data['middle_name']);
+
+              $row = $this->db->single();
+              $result = $this->db->resultSet();
+              $matchCount = $this->db->rowCount();
+
+              if($this->db->rowCount() > 0){
+                     return $row;
+              }else{
+                     return false;
+              }
+       }
 }
 
 ?>
