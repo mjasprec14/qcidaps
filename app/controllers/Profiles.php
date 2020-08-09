@@ -46,6 +46,7 @@ class Profiles extends Controller {
                             
                             // THIS IS WHERE U FETCH USERID and BRGY INFO TO ADD IN CONTROL NUMBER
                             if($this->userModel->createProfile($data)){
+                                   flash('register_success', 'Profile created successfully');
                                    redirect('profiles/createProfile');
                             }else{
                                    die('Something went wrong');

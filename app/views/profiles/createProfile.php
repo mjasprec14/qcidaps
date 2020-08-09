@@ -1,7 +1,7 @@
 <?php require_once APPROOT . '/views/inc/header.php'; ?>
 
 <h4 class="mb-3">Create new profile</h4>
-
+<?php flash('register_success'); ?>
 <div class="row">
        <div class="col-md-12 mx-auto">
               <form action="<?php echo URLROOT; ?>/profiles/createProfile" method="post">
