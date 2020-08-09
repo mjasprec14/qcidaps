@@ -11,7 +11,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo URLROOT; ?>/pages/create">Create profile</a>
+        <a class="nav-link" href="<?php echo URLROOT; ?>/profiles/createProfile">Create profile</a>
       </li>
 
       <li class="nav-item">
