@@ -14,11 +14,11 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT; ?>/profiles/createProfile">Create profile</a>
+          <a class="nav-link" href="<?php echo URLROOT; ?>/profiles">Profiles</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT; ?>/pages/search">Search profile</a>
+          <a class="nav-link" href="<?php echo URLROOT; ?>/profiles/searchProfile">Search profile</a>
         </li>
 
     <?php else : ; ?>

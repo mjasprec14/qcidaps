@@ -7,9 +7,25 @@ class Profile{
               $this->db = new Database;
        }
 
-       public function createProfile($data){
-              $this->db->query('INSERT INTO profiles (control_no, type_of_admission, last_name, first_name, middle_name, extension_name) VALUES(:control_no, :type_of_admission, :last_name, :first_name, :middle_name, :extension_name)');
+       public function getProfile(){
+              $this->db->query('SELECT *,
+              profiles.id as profileId,
+              users.id as userId
+              FROM profiles
+              INNER JOIN users
+              ON profiles.user_id = users.id
+              ORDER BY profiles.created_at DESC
+              ');
 
+              $results = $this->db->resultSet();
+
+              return $results;
+       }
+
+       public function createProfile($data){
+              $this->db->query('INSERT INTO profiles (user_id, control_no, type_of_admission, last_name, first_name, middle_name, extension_name) VALUES(:user_id, :control_no, :type_of_admission, :last_name, :first_name, :middle_name, :extension_name)');
+
+              $this->db->bind(':user_id', $data['user_id']);
               $this->db->bind(':control_no', $data['control_no']);
               $this->db->bind(':type_of_admission', $data['type_of_admission']);
               $this->db->bind(':last_name', $data['last_name']);
@@ -22,6 +38,10 @@ class Profile{
               }else{
                      return false;
               }
+       }
+
+       public function searchProfile($data){
+
        }
 
        public function existingProfile($data){
@@ -40,6 +60,24 @@ class Profile{
                      return false;
               }
        }
+
+       public function getPostById($id){
+              $this->db->query('SELECT * FROM profiles WHERE id = :id');
+              $this->db->bind(':id', $id);
+
+              $row = $this->db->single();
+
+              return $row;
+       }
+
+       public function generateCtrlNo(){
+                     $emp = $_SESSION['employee_id'];
+                     $n = date("Y.m.d");
+                     $date = $n[5].$n[6].$n[8].$n[9].$n[2].$n[3];
+                     $ctrl_no = $emp . $date;
+                     return $ctrl_no;
+       }
+
 }
 
 ?>

@@ -1,16 +1,21 @@
 <?php require_once APPROOT . '/views/inc/header.php'; ?>
 
-<h4 class="mb-3">Create new profile</h4>
-<?php flash('register_success'); ?>
-<?php flash('Match'); ?>
+<a href="<?php echo URLROOT; ?>/profiles" class="btn btn-primary"><div class="fa fa-arrow-circle-left"> Back</div></a>
+
+<h4 class="mb-3 mt-4">Create new profile</h4>
+
+       
+       <?php flash('Match'); ?>
+
 <div class="row">
        <div class="col-md-12 mx-auto">
               <form action="<?php echo URLROOT; ?>/profiles/createProfile" method="post">
               <div class="form-row">
 
+
                             <div class="form-group col-md-6">
                                    <label for="control_no">Control No.: </label>
-                                   <input type="text" id="control_no" name="control_no" class="form-control form-control-sm <?php echo (!empty($data['control_no_err'])) ? 'is-invalid' : '' ?>" value="<?php echo $data['control_no']; ?>" >
+                                   <input type="text" id="control_no" name="control_no" class="form-control form-control-sm <?php echo (!empty($data['control_no_err'])) ? 'is-invalid' : '' ?>" value="<?php echo $data['control_no']; ?>">
 
                                    <span class="invalid-feedback"><?php echo $data['control_no_err']; ?></span>
                             </div>
@@ -59,9 +64,9 @@
               </div>
 
 
-              <div class="form-row col-md-12">
-                     <button type="submit" class="btn btn-primary">Create</button>
-              </div>
+             
+                     <button type="submit" class="btn btn-success pull-right">Create</button>
+              
               
               </form>
        </div>

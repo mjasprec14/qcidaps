@@ -2,7 +2,18 @@
 
 class Profiles extends Controller {
        public function __construct(){
-              $this->userModel = $this->model('profile');
+              //$this->userModel = $this->model('profile');
+              $this->profileModel = $this->model('profile');   
+       }
+
+       public function index(){
+              $profile = $this->profileModel->getProfile();
+
+              $data = [
+                     'profile' => $profile
+              ];
+
+              $this->view('profiles/index', $data);
        }
 
        public function createProfile(){
@@ -11,6 +22,7 @@ class Profiles extends Controller {
                      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
                      $data = [
+                            'user_id' => $_SESSION['user_id'],
                             'control_no' => trim($_POST['control_no']),
                             'type_of_admission' => trim($_POST['type_of_admission']),
                             'last_name' => trim($_POST['last_name']),
@@ -41,22 +53,23 @@ class Profiles extends Controller {
                             $data['middle_name_err'] = 'Please provide full middle name';
                      }
 
+                     $existingProfile = $this->profileModel->existingProfile($data);
                      
 
-                     if($this->userModel->existingProfile($data)){
-                            $profileExist = $this->userModel->existingProfile($data);
-                            $errMsg = 'Existing profile<br> Control No: ' . $profileExist->control_no . '<br>Name: ' . $profileExist->last_name . ', ' . $profileExist->first_name;
+                     if($existingProfile){
+                            $errMsg = 'Existing profile<br> Control No: ' . $existingProfile->control_no . '<br>Name: ' . $existingProfile->last_name . ', ' . $existingProfile->first_name;
 
                             flash('register_success', $errMsg, 'alert alert-danger');
                      }
 
-                     if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err'])){
+
+                     if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err']) && !$existingProfile){
                             print_r($data);
                             
                             // THIS IS WHERE U FETCH USERID and BRGY INFO TO ADD IN CONTROL NUMBER
-                            if($this->userModel->createProfile($data)){
-                                   flash('register_success', 'Profile created successfully');
-                                   redirect('profiles/createProfile');
+                            if($this->profileModel->createProfile($data)){
+                                   flash('profile_message', 'Profile created');
+                                   redirect('profiles');
                             }else{
                                    die('Something went wrong');
                             }
@@ -81,6 +94,60 @@ class Profiles extends Controller {
 
                      $this->view('profiles/createProfile', $data);
               }
+       }
+
+       public function searchProfile(){
+
+                     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                            
+                            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                            $data = [
+                                   'filter' => $_POST['filter_by'],
+                                   'search' => trim($_POST['search']),
+                                   'search_err' => ''
+                            ];
+                            
+                            if(empty($data['search'])){
+                                   $data['search_err'] = 'Please provide a search term';
+                            }
+
+                            if(empty($data['search_err'])){
+                                  
+                                   if($this->profileModel->searchProfile($data)){
+
+                                   }else{
+                                          die('Something went wrong');
+                                   }
+
+                            }else{
+                                   
+                                   $this->view('profiles/searchProfile', $data);
+                            }
+
+                     $this->view('profiles/searchProfile', $data);
+
+                     }else{
+
+                            $data = [
+                                   'search' => '',
+                                   'search_err' => ''
+                            ];
+
+                     $this->view('profiles/searchProfile', $data);
+
+                     }
+       }
+
+       public function showProfile($id){
+
+              $profile = $this->profileModel->getPostById($id);
+
+              $data = [
+                     'profile' => $profile
+              ];
+
+              $this->view('profiles/showProfile', $data);
        }
 }
 

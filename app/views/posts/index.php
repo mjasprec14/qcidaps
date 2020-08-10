@@ -27,7 +27,7 @@
                                    
                             </div>
                             <div class="col-md-2">
-                                   <a href="<?php echo URLROOT; ?>/posts/show<?php echo $posts->postsId; ?>" class="btn btn-dark pull-right">Read More</a>
+                                   <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $posts->postId; ?>" class="btn btn-dark pull-right">Read More</a>
                             </div>
                      </div>
               </div>
