@@ -70,8 +70,6 @@ class Profile{
        }
 
        public function searchByCtrlNo($item){
-             //$this->db->query('SELECT * FROM profiles WHERE control_no = :control_no');
-             
                      $this->db->query('SELECT *,
                      profiles.id as profileId,
                      users.id as userId
@@ -83,8 +81,11 @@ class Profile{
 
                      $this->db->bind(':control_no', $item);
                      $row = $this->db->single();
-                     return $row;
-                 
+                     if($row){
+                            return $row;
+                     }else{
+                            return false;
+                     }
        }
 
        public function searchByLastName($lastname){
@@ -99,7 +100,11 @@ class Profile{
 
                      $this->db->bind(':last_name', $lastname);
                      $results = $this->db->resultSet();
-                     return $results;
+                     if($results){
+                            return $results;
+                     }else{
+                            return false;
+                     }
        }
 
        public function existingProfile($data){
@@ -128,8 +133,7 @@ class Profile{
               return $row;
        }
 
-       public function generateCtrlNo(){
-                     
+       public function generateCtrlNo(){    
                      $emp = $_SESSION['employee_id'];
                      $n = date("Y.m.d");
                      $date = $n[5].$n[6].$n[8].$n[9].$n[2].$n[3];

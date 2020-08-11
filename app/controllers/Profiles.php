@@ -176,35 +176,57 @@ class Profiles extends Controller {
                             'filter_by' => $_POST['filter_by'],
                             'search_item' => trim($_POST['search_item']),
                             'search_item_err' => '',
-                            'search_result' => ''
+                            'search_result' => '',
+                            
+                            'name' => '',
+                            'created_at' => '',
+                            'profileId' => '',
+                            'control_no' => '',
+                            'last_name' => '',
+                            'first_name' => '',
+                            'middle_name' => ''
                      ];
 
                      if(empty($data['search_item'])){
                             $data['search_item_err'] = 'Please provide a search term';
                      }             
-
+                     
                      if(empty($data['search_item_err'])){
+                            
                             if($data['filter_by'] == 'control_no'){
+                                   
                                    $result = $this->profileModel->searchByCtrlNo($data['search_item']);
-                            }elseif($data['filter_by'] == 'last_name'){
-                                   $result = $this->profileModel->searchByLastName($data['search_item']);
-                            }
-
-                            if($result){
-                                   if($data['filter_by'] == 'control_no'){
-                                          $this->getByCtrlNumber($result);
-                                   }elseif($data['filter_by'] == 'last_name'){
-                                          $this->getByLastName($result);
+                                   if($result){
+                                           $this->getByCtrlNumber($result);
+                                   }else{
+                                          flash('search_message', 'No match found', 'alert alert-danger');
+                                          redirect('profiles/searchProfile');
                                    }
-                            }else {
-                                   flash('search_message', 'No match found', 'alert alert-danger');
-                                   redirect('profiles/searchProfile');
+
+                            }elseif($data['filter_by'] == 'last_name'){
+                                    $result = $this->profileModel->searchByLastName($data['search_item']);
+                                    if($result){
+                                          $this->getByLastName($result);
+                                    }else{
+                                          flash('search_message', 'No match found', 'alert alert-danger');
+                                          redirect('profiles/searchProfile');
+                                   }
+                            }else{
+                                   die('Something went wrong');
                             }
+                            
+                           
                      }else{
+                            $data = [
+                                   'display' => 'none',
+                                   'search_item' => ''
+                            ];
+
                             $this->view('profiles/searchProfile', $data);
                      }
 
               }else{
+                     
                      $data = [
                             'display' => 'none',
                             'name' => '',
@@ -225,6 +247,7 @@ class Profiles extends Controller {
        }
 
        public function getByCtrlNumber($profile){
+                     if(isset($profile)){
                             $data = [
                                    'display' => 'block',
                                    'name' => $profile->name,
@@ -236,8 +259,11 @@ class Profiles extends Controller {
                                    'first_name' => $profile->first_name,
                                    'middle_name' => $profile->middle_name
                             ];
+                     }else{
+                            die('not set');
+                     }
                      
-                     $this->view('profiles/searchProfile', $data);
+                     $this->view('profiles/searchProfile', $data);         
        }
 
        public function getByLastName($profiles){
@@ -248,11 +274,8 @@ class Profiles extends Controller {
                             'search_item' => '',
                             'search_item_err' => ''
                      ];
-              }else{
-                     redirect('profiles/searchProfile');
+                     $this->view('profiles/searchResult', $data);
               }
-              
-              $this->view('profiles/searchResult', $data);
        }
 
        public function showProfile($id){
