@@ -38,8 +38,12 @@
           <?php endif; ?>
 
                 <li class="nav-item">
+                     <a class="nav-link" href="#"><i class="fa fa-address-card"></i> <?php echo $_SESSION['status'] . ' : ' . $_SESSION['user_name']; ?></a>
+                </li>
+
+                <li class="nav-item">
                      <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout"><i class="fa fa-arrow-right"></i> Logout</a>
-              </li>
+                </li>
 
       <?php else : ; ?>
               

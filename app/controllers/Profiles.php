@@ -2,7 +2,6 @@
 
 class Profiles extends Controller {
        public function __construct(){
-              //$this->userModel = $this->model('profile');
               $this->profileModel = $this->model('Profile');
               $this->userModel = $this->model('User');
        }
@@ -21,7 +20,7 @@ class Profiles extends Controller {
               if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+                     
                      $data = [
                             'user_id' => $_SESSION['user_id'],
                             'control_no' => trim($_POST['control_no']),
@@ -60,12 +59,11 @@ class Profiles extends Controller {
                      if($existingProfile){
                             $errMsg = 'Existing profile<br> Control No: ' . $existingProfile->control_no . '<br>Name: ' . $existingProfile->last_name . ', ' . $existingProfile->first_name;
 
-                            flash('register_success', $errMsg, 'alert alert-danger');
+                            flash('existing_profile', $errMsg, 'alert alert-danger');
                      }
 
 
                      if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err']) && !$existingProfile){
-                            print_r($data);
                             
                             // THIS IS WHERE U FETCH USERID and BRGY INFO TO ADD IN CONTROL NUMBER
                             if($this->profileModel->createProfile($data)){
@@ -79,9 +77,9 @@ class Profiles extends Controller {
                      }
 
               }else{
-
+                     $ctrl_no = $this->profileModel->generateCtrlNo();
                      $data = [
-                            'control_no' => '',
+                            'control_no' => $ctrl_no,
                             'type_of_admission' => '',
                             'last_name' => '',
                             'first_name' => '',
@@ -136,8 +134,7 @@ class Profiles extends Controller {
                      }
 
                      if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err']) ){
-                            print_r($data);
-                            
+    
                             // THIS IS WHERE U FETCH USERID and BRGY INFO TO ADD IN CONTROL NUMBER
                             if($this->profileModel->updateProfile($data)){
                                    flash('profile_message', 'Profile updated');
@@ -172,45 +169,90 @@ class Profiles extends Controller {
 
        public function searchProfile(){
 
-                     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                            
-                            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+              if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-                            $data = [
-                                   'filter' => $_POST['filter_by'],
-                                   'search' => trim($_POST['search']),
-                                   'search_err' => ''
-                            ];
-                            
-                            if(empty($data['search'])){
-                                   $data['search_err'] = 'Please provide a search term';
+                     $data = [
+                            'filter_by' => $_POST['filter_by'],
+                            'search_item' => trim($_POST['search_item']),
+                            'search_item_err' => '',
+                            'search_result' => ''
+                     ];
+
+                     if(empty($data['search_item'])){
+                            $data['search_item_err'] = 'Please provide a search term';
+                     }             
+
+                     if(empty($data['search_item_err'])){
+                            if($data['filter_by'] == 'control_no'){
+                                   $result = $this->profileModel->searchByCtrlNo($data['search_item']);
+                            }elseif($data['filter_by'] == 'last_name'){
+                                   $result = $this->profileModel->searchByLastName($data['search_item']);
                             }
 
-                            if(empty($data['search_err'])){
-                                  
-                                   if($this->profileModel->searchProfile($data)){
-
-                                   }else{
-                                          die('Something went wrong');
+                            if($result){
+                                   if($data['filter_by'] == 'control_no'){
+                                          $this->getByCtrlNumber($result);
+                                   }elseif($data['filter_by'] == 'last_name'){
+                                          $this->getByLastName($result);
                                    }
-
-                            }else{
-                                   
-                                   $this->view('profiles/searchProfile', $data);
+                            }else {
+                                   flash('search_message', 'No match found', 'alert alert-danger');
+                                   redirect('profiles/searchProfile');
                             }
-
-                     $this->view('profiles/searchProfile', $data);
-
                      }else{
+                            $this->view('profiles/searchProfile', $data);
+                     }
 
-                            $data = [
-                                   'search' => '',
-                                   'search_err' => ''
-                            ];
+              }else{
+                     $data = [
+                            'display' => 'none',
+                            'name' => '',
+                            'created_at' => '',
+                            'profileId' => '',
+                            
+
+                            'filter_by' => '',
+                            'search_item' => '',
+                            'control_no' => '',
+                            'last_name' => '',
+                            'first_name' => '',
+                            'middle_name' => ''
+                     ];
 
                      $this->view('profiles/searchProfile', $data);
+              }  
+       }
 
-                     }
+       public function getByCtrlNumber($profile){
+                            $data = [
+                                   'display' => 'block',
+                                   'name' => $profile->name,
+                                   'created_at' => $profile->created_at,
+                                   'profileId' => $profile->profileId,
+                                   'search_item' => '',
+                                   'control_no' => $profile->control_no,
+                                   'last_name' => $profile->last_name,
+                                   'first_name' => $profile->first_name,
+                                   'middle_name' => $profile->middle_name
+                            ];
+                     
+                     $this->view('profiles/searchProfile', $data);
+       }
+
+       public function getByLastName($profiles){
+
+              if($profiles){               
+                     $data = [ 
+                            'profiles' => $profiles,
+                            'search_item' => '',
+                            'search_item_err' => ''
+                     ];
+              }else{
+                     redirect('profiles/searchProfile');
+              }
+              
+              $this->view('profiles/searchResult', $data);
        }
 
        public function showProfile($id){

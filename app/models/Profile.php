@@ -69,8 +69,37 @@ class Profile{
               }
        }
 
-       public function searchProfile($data){
+       public function searchByCtrlNo($item){
+             //$this->db->query('SELECT * FROM profiles WHERE control_no = :control_no');
+             
+                     $this->db->query('SELECT *,
+                     profiles.id as profileId,
+                     users.id as userId
+                     FROM profiles
+                     INNER JOIN users
+                     ON profiles.user_id = users.id
+                     WHERE control_no = :control_no
+                     ');
 
+                     $this->db->bind(':control_no', $item);
+                     $row = $this->db->single();
+                     return $row;
+                 
+       }
+
+       public function searchByLastName($lastname){
+              $this->db->query('SELECT *,
+                     profiles.id as profileId,
+                     users.id as userId
+                     FROM profiles
+                     INNER JOIN users
+                     ON profiles.user_id = users.id
+                     WHERE last_name = :last_name
+                     ');
+
+                     $this->db->bind(':last_name', $lastname);
+                     $results = $this->db->resultSet();
+                     return $results;
        }
 
        public function existingProfile($data){
@@ -100,11 +129,14 @@ class Profile{
        }
 
        public function generateCtrlNo(){
+                     
                      $emp = $_SESSION['employee_id'];
                      $n = date("Y.m.d");
                      $date = $n[5].$n[6].$n[8].$n[9].$n[2].$n[3];
-                     $ctrl_no = $emp . $date;
-                     return $ctrl_no;
+                     
+                     $genId = md5(uniqid(rand(), true));
+                     $genId = $emp . substr($genId, 0, 6). $date;
+                     return $genId;
        }
 
 }

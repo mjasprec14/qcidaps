@@ -29,22 +29,24 @@
               </form>
        </div>
 </div>
-<?php flash('search_message'); ?>
 
-             <div class="card card-body mb-3" style="display: <?php echo $data['display']; ?>">
-                     <h6 class="card-title"><?php echo $data['control_no']; ?></h6>
-                     <p><?php echo ucwords($data['last_name']) . ', ' . ucwords($data['first_name']) . ' ' . ucwords($data['middle_name']); ?></p>
+     <?php foreach($data['profiles'] as $profiles) : ?>
+              
+              <div class="card card-body mb-3">
+                     <h6 class="card-title"><?php echo $profiles->control_no; ?></h6>
+                     <p><?php echo ucwords($profiles->last_name) . ', ' . ucwords($profiles->first_name) . ' ' . ucwords($profiles->middle_name); ?></p>
 
                      <div class="row">
                             <div class="col-md-10">
-                                   <p>Created by <?php echo $data['name']; ?> on <?php echo $data['created_at']; ?></p>
+                                   <p>Created by <?php echo $profiles->name; ?> on <?php echo $profiles->created_at; ?></p>
                             </div>
 
                             <div class="col-md-2">
-                                   <a href="<?php echo URLROOT; ?>/profiles/showProfile/<?php echo $data['profileId']; ?>" class="btn btn-primary pull-right">View More</a>
+                                   <a href="<?php echo URLROOT; ?>/profiles/showProfile/<?php echo $profiles->profileId; ?>" class="btn btn-primary pull-right">View More</a>
                             </div>
                      </div>
               </div>
 
+       <?php endforeach; ?>
 
 <?php require_once APPROOT . '/views/inc/footer.php'; ?>

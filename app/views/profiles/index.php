@@ -16,7 +16,7 @@
               <a href="<?php echo URLROOT; ?>/profiles/createProfile" class="btn btn-success pull-right">
                      <i class="fa fa-pencil"></i> Add Profile
               </a>
-       </div>  
+       </div>
 </div>
 
        <?php foreach($data['profile'] as $profiles) : ?>
@@ -27,7 +27,7 @@
 
                      <div class="row">
                             <div class="col-md-10">
-                                   <p>Created by <?php echo $profiles->name; ?></p>
+                                   <p>Created by <?php echo $profiles->name; ?> on <?php echo $profiles->created_at; ?></p>
                             </div>
 
                             <div class="col-md-2">

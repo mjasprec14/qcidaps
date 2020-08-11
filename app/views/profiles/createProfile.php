@@ -4,8 +4,7 @@
 
 <h4 class="mb-3 mt-4">Create new profile</h4>
 
-       
-       <?php flash('Match'); ?>
+       <?php flash('existing_profile'); ?>
 
 <div class="row">
        <div class="col-md-12 mx-auto">
