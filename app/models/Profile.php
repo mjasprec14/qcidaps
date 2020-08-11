@@ -40,6 +40,24 @@ class Profile{
               }
        }
 
+       public function updateProfile($data){
+              $this->db->query('UPDATE profiles SET control_no = :control_no, type_of_admission = :type_of_admission, last_name = :last_name, first_name = :first_name, middle_name = :middle_name, extension_name = :extension_name WHERE id = :id');
+
+              $this->db->bind(':id', $data['id']);
+              $this->db->bind(':control_no', $data['control_no']);
+              $this->db->bind(':type_of_admission', $data['type_of_admission']);
+              $this->db->bind(':last_name', $data['last_name']);
+              $this->db->bind(':first_name', $data['first_name']);
+              $this->db->bind(':middle_name', $data['middle_name']);
+              $this->db->bind(':extension_name', $data['extension_name']);
+
+              if($this->db->execute()){
+                     return true;
+              }else{
+                     return false;
+              }
+       }
+
        public function searchProfile($data){
 
        }
@@ -61,7 +79,7 @@ class Profile{
               }
        }
 
-       public function getPostById($id){
+       public function getProfileById($id){
               $this->db->query('SELECT * FROM profiles WHERE id = :id');
               $this->db->bind(':id', $id);
 
