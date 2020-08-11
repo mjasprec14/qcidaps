@@ -58,6 +58,17 @@ class Profile{
               }
        }
 
+       public function delete($id){
+              $this->db->query('DELETE FROM profiles WHERE id = :id');
+              $this->db->bind(':id', $id);
+
+              if($this->db->execute()){
+                     return true;
+              }else{
+                     return false;
+              }
+       }
+
        public function searchProfile($data){
 
        }

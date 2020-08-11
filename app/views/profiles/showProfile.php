@@ -17,7 +17,7 @@
                      </div>
 
                      <div class="col-md-6">
-                            <form action="<?php echo URLROOT; ?>/profiles/delete/<?php echo $data['profile']->id ?>" method="post">
+                            <form action="<?php echo URLROOT; ?>/profiles/deleteProfile/<?php echo $data['profile']->id ?>" method="post">
                                    <input type="submit" value="Delete" class="btn btn-danger pull-right">
                             </form>
                      </div>

@@ -135,16 +135,6 @@ class Profiles extends Controller {
                             $data['middle_name_err'] = 'Please provide full middle name';
                      }
 
-                     // $existingProfile = $this->profileModel->existingProfile($data);
-                     
-
-                     // if($existingProfile){
-                     //        $errMsg = 'Existing profile<br> Control No: ' . $existingProfile->control_no . '<br>Name: ' . $existingProfile->last_name . ', ' . $existingProfile->first_name;
-
-                     //        flash('register_success', $errMsg, 'alert alert-danger');
-                     // } && !$existingProfile
-
-
                      if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err']) ){
                             print_r($data);
                             
@@ -234,6 +224,19 @@ class Profiles extends Controller {
               ];
 
               $this->view('profiles/showProfile', $data);
+       }
+
+       public function deleteProfile($id){
+              if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                     if($this->profileModel->delete($id)){
+                            flash('profile_message', 'Profile removed');
+                            redirect('profiles');
+                     }else{
+                            die('Something went wrong');
+                     }
+              }else{
+                     redirect('profiles');
+              }
        }
 }
 
