@@ -17,11 +17,14 @@ class Profiles extends Controller {
        }
 
        public function createProfile(){
+              $ctrl_no = $this->profileModel->generateCtrlNo();
               if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-                     
+                     $target = 'img/'.basename($_FILES['image']['name']);
+
                      $data = [
+                            'image' => $_FILES['image']['name'],
                             'user_id' => $_SESSION['user_id'],
                             'control_no' => trim($_POST['control_no']),
                             'type_of_admission' => trim($_POST['type_of_admission']),
@@ -67,7 +70,8 @@ class Profiles extends Controller {
                             
                             // THIS IS WHERE U FETCH USERID and BRGY INFO TO ADD IN CONTROL NUMBER
                             if($this->profileModel->createProfile($data)){
-                                   flash('profile_message', 'Profile created');
+                                   move_uploaded_file($_FILES['image']['tmp_name'], $target);
+                                   flash('profile_message', 'Profile created <br>Control Number: ' . $ctrl_no);
                                    redirect('profiles');
                             }else{
                                    die('Something went wrong');
@@ -77,8 +81,9 @@ class Profiles extends Controller {
                      }
 
               }else{
-                     $ctrl_no = $this->profileModel->generateCtrlNo();
+                     
                      $data = [
+                            'image' => '',
                             'control_no' => $ctrl_no,
                             'type_of_admission' => '',
                             'last_name' => '',
@@ -250,6 +255,7 @@ class Profiles extends Controller {
                      if(isset($profile)){
                             $data = [
                                    'display' => 'block',
+                                   'image' => $profile->image,
                                    'name' => $profile->name,
                                    'created_at' => $profile->created_at,
                                    'profileId' => $profile->profileId,

@@ -23,8 +23,9 @@ class Profile{
        }
 
        public function createProfile($data){
-              $this->db->query('INSERT INTO profiles (user_id, control_no, type_of_admission, last_name, first_name, middle_name, extension_name) VALUES(:user_id, :control_no, :type_of_admission, :last_name, :first_name, :middle_name, :extension_name)');
+              $this->db->query('INSERT INTO profiles (image, user_id, control_no, type_of_admission, last_name, first_name, middle_name, extension_name) VALUES(:image, :user_id, :control_no, :type_of_admission, :last_name, :first_name, :middle_name, :extension_name)');
 
+              $this->db->bind(':image', $data['image']);
               $this->db->bind(':user_id', $data['user_id']);
               $this->db->bind(':control_no', $data['control_no']);
               $this->db->bind(':type_of_admission', $data['type_of_admission']);
