@@ -28,12 +28,16 @@
                                                  </div>
 
                                                  <div class="col">
-                                                               <label for="type_of_admission">Admission Type: </label>
-                                                               <select id="type_of_admission" name="type_of_admission" class="form-control form-control-sm" >
-                                                                      <option value="New Admission" selected>New Admission</option>
-                                                                      <option value="New Admission">Readmission</option>
-                                                                      <option value="New Admission">Recommitment</option>
+
+                                                               <label for="type_of_admission">Admission Type:</label>
+                                                               <select name="type_of_admission" id="type_of_admission" class="form-control form-control-sm <?php echo !empty($data['type_of_admission_err']) ? 'is-invalid' : ''; ?>"
+                                                               >
+                                                                      <option selected value="<?php echo $data['type_of_admission']; ?>"><?php echo $data['type_of_admission']; ?></option>
+                                                                      <option value="Public">Public</option>
+                                                                      <option value="Administrator">Administrator</option>
                                                                </select>
+
+                                                               <span class="invalid-feedback"><?php echo $data['type_of_admission_err']; ?></span>
                                                  </div>
                                           </div>
                                    </div>
@@ -63,13 +67,66 @@
                                                         </div>
 
                                                         <div class="form-group col-md-2">
-                                                               <label for="extension_name" >Extension: </label>
-                                                               <select id="extension_name" name="extension_name" class="form-control form-control-sm" >
-                                                                      <option selected value="No Name Extension">No Name Extension</option>
+
+                                                               <label for="extension_name">Extension:</label>
+                                                               <select name="extension_name" id="extension_name" class="form-control form-control-sm <?php echo !empty($data['extension_name_err']) ? 'is-invalid' : ''; ?>"
+                                                               >
+                                                                      <option selected value="<?php echo $data['extension_name']; ?>"><?php echo $data['extension_name']; ?></option>
+                                                                      <option value="No Name Extension">No Name Extension</option>
                                                                       <option value="Junior">Junior</option>
                                                                       <option value="Senior">Senior</option>
                                                                </select>
+
+                                                               <span class="invalid-feedback"><?php echo $data['extension_name_err']; ?></span>
                                                         </div>
+                                          </div>
+                                   </div>
+
+
+                                   
+                                   <div class="col">
+                                          <div class="row">
+
+                                                        <div class="form-group col-md-2">
+                                                               <label for="sex">Sex:</label>
+                                                               <select name="sex" id="sex" class="form-control form-control-sm <?php echo !empty($data['sex_err']) ? 'is-invalid' : ''; ?>"
+                                                               >
+                                                                      <option selected value="<?php echo $data['sex']; ?>"><?php echo $data['sex']; ?></option>
+                                                                      <option value="Male">Male</option>
+                                                                      <option value="Female">Female</option>
+                                                               </select>
+
+                                                               <span class="invalid-feedback"><?php echo $data['sex_err']; ?></span>
+                                                        </div>
+
+                                                        <div class="form-group col-md-2">
+                                                               <label for="aka">AKA: </label>
+                                                               <input type="text" id="aka" name="aka" class="form-control form-control-sm <?php echo (!empty($data['aka_err'])) ? 'is-invalid' : '' ?>" value="<?php echo $data['aka']; ?>" >
+
+                                                               <span class="invalid-feedback"><?php echo $data['aka_err']; ?></span>
+                                                        </div>
+
+                                                        <div class="form-group col-md-3">
+                                                               <label for="date_of_birth">Date of Birth: </label>
+                                                               <input type="date" id="date_of_birth" name="date_of_birth" class="form-control form-control-sm <?php echo (!empty($data['date_of_birth_err'])) ? 'is-invalid' : '' ?>" value="<?php echo $data['date_of_birth']; ?>"  >
+
+                                                               <span class="invalid-feedback"><?php echo $data['date_of_birth_err']; ?></span>
+                                                        </div>
+
+                                                        <div class="form-group col-md-2">
+                                                               <label for="age">Age: </label>
+                                                               <input type="text" id="age" name="age" class="form-control form-control-sm <?php echo (!empty($data['age_err'])) ? 'is-invalid' : '' ?>" value="<?php echo $data['age']; ?>"  >
+
+                                                               <span class="invalid-feedback"><?php echo $data['age_err']; ?></span>
+                                                        </div>
+
+                                                        <div class="form-group col-md-3">
+                                                               <label for="place_of_birth">Place of Birth: </label>
+                                                               <input type="text" id="place_of_birth" name="place_of_birth" class="form-control form-control-sm <?php echo (!empty($data['place_of_birth_err'])) ? 'is-invalid' : '' ?>" value="<?php echo $data['place_of_birth']; ?>"  >
+
+                                                               <span class="invalid-feedback"><?php echo $data['place_of_birth_err']; ?></span>
+                                                        </div>
+                                                 
                                           </div>
                                    </div>
 

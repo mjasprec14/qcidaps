@@ -32,14 +32,30 @@ class Profiles extends Controller {
                             'first_name' => trim($_POST['first_name']),
                             'middle_name' => trim($_POST['middle_name']),
                             'extension_name' => trim($_POST['extension_name']),
+                            'sex' => trim($_POST['sex']),
+                            'aka' => trim($_POST['aka']),
+                            'date_of_birth' => trim($_POST['date_of_birth']),
+                            'age' =>  trim($_POST['age']),
+                            'place_of_birth' => trim($_POST['place_of_birth']),
                             'control_no_err' => '',
+                            'type_of_admission_err' => '',
                             'last_name_err' => '',
                             'first_name_err' => '',
-                            'middle_name_err' => ''
+                            'middle_name_err' => '',
+                            'extension_name_err' => '',
+                            'sex_err' => '',
+                            'aka_err' => '',
+                            'date_of_birth_err' => '',
+                            'age_err' =>  '',
+                            'place_of_birth_err' => '',
                      ];
 
                      if(empty($data['control_no'])){
                             $data['control_no_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['type_of_admission'])){
+                            $data['type_of_admission_err'] = 'Please provide type of admission';
                      }
 
                      if(empty($data['last_name'])){
@@ -54,6 +70,30 @@ class Profiles extends Controller {
                             $data['middle_name_err'] = 'Please provide middle name';
                      }elseif(strlen($data['middle_name']) < 2){
                             $data['middle_name_err'] = 'Please provide full middle name';
+                     }
+
+                     if(empty($data['extension_name'])){
+                            $data['extension_name_err'] = 'Please provide name extension or N/A';
+                     }
+
+                     if(empty($data['sex'])){
+                            $data['sex_err'] = 'Please provide gender';
+                     }
+
+                     if(empty($data['aka'])){
+                            $data['aka_err'] = 'Please provide AKA';
+                     }
+
+                     if(empty($data['date_of_birth'])){
+                            $data['date_of_birth_err'] = 'Please provide date of birth';
+                     }
+
+                     if(empty($data['age'])){
+                            $data['age_err'] = 'Please provide age';
+                     }
+
+                     if(empty($data['place_of_birth'])){
+                            $data['place_of_birth_err'] = 'Please provide place of birth';
                      }
 
                      $existingProfile = $this->profileModel->existingProfile($data);
@@ -90,10 +130,22 @@ class Profiles extends Controller {
                             'first_name' => '',
                             'middle_name' => '',
                             'extension_name' => '',
+                            'sex' => '',
+                            'aka' => '',
+                            'date_of_birth' => '',
+                            'age' => '',
+                            'place_of_birth' => '',
                             'control_no_err' => '',
+                            'type_of_admission_err' => '',
                             'last_name_err' => '',
                             'first_name_err' => '',
-                            'middle_name_err' => ''
+                            'middle_name_err' => '',
+                            'extension_name_err' => '',
+                            'sex_err' => '',
+                            'aka_err' => '',
+                            'date_of_birth_err' => '',
+                            'age_err' =>  '',
+                            'place_of_birth_err' => '',
                      ];
 
                      $this->view('profiles/createProfile', $data);
