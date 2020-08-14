@@ -23,7 +23,7 @@ class Profile{
        }
 
        public function createProfile($data){
-              $this->db->query('INSERT INTO profiles (image, user_id, control_no, type_of_admission, last_name, first_name, middle_name, extension_name, sex, aka, date_of_birth, age, place_of_birth, house_no, street, district, barangay, civil_status, nationality, religion, advocacy_partner, highest_educational_attainment, no_of_years_in_school, date_of_last_attendance_at_school, occupation_prior_to_surrender) VALUES(:image, :user_id, :control_no, :type_of_admission, :last_name, :first_name, :middle_name, :extension_name, :sex, :aka, :date_of_birth, :age, :place_of_birth, :house_no, :street, :district, :barangay, :civil_status, :nationality, :religion, :advocacy_partner, :highest_educational_attainment, :no_of_years_in_school, :date_of_last_attendance_at_school, :occupation_prior_to_surrender)');
+              $this->db->query('INSERT INTO profiles (image, user_id, control_no, type_of_admission, last_name, first_name, middle_name, extension_name, sex, aka, date_of_birth, age, place_of_birth, house_no, street, district, barangay, civil_status, nationality, religion, advocacy_partner, highest_educational_attainment, no_of_years_in_school, date_of_last_attendance_at_school, occupation_prior_to_surrender, number_of_siblings, ordinal_position, living_arrangement, estimated_monthly_inc, name_of_father, occupation_of_father, name_of_mother, occupation_of_mother, name_of_spouse, occupation_of_spouse, address_of_spouse, age_at_first_drug_use, date_of_last_drug_use, length_of_drug_use, frequency_of_drug_use, means_to_support_drug_habbit, area_where_drugs_are_being_abused, daily_expense_on_drugs, source_of_drugs, place_of_drug_source, primary_reason_for_using_drugs, drug_used_for_the_last_12_months, date_of_drug_dependency_evaluation) VALUES(:image, :user_id, :control_no, :type_of_admission, :last_name, :first_name, :middle_name, :extension_name, :sex, :aka, :date_of_birth, :age, :place_of_birth, :house_no, :street, :district, :barangay, :civil_status, :nationality, :religion, :advocacy_partner, :highest_educational_attainment, :no_of_years_in_school, :date_of_last_attendance_at_school, :occupation_prior_to_surrender, :number_of_siblings, :ordinal_position, :living_arrangement, :estimated_monthly_inc, :name_of_father, :occupation_of_father, :name_of_mother, :occupation_of_mother, :name_of_spouse, :occupation_of_spouse, :address_of_spouse, :age_at_first_drug_use, :date_of_last_drug_use, :length_of_drug_use, :frequency_of_drug_use, :means_to_support_drug_habbit, :area_where_drugs_are_being_abused, :daily_expense_on_drugs, :source_of_drugs, :place_of_drug_source, :primary_reason_for_using_drugs, :drug_used_for_the_last_12_months, :date_of_drug_dependency_evaluation)');
 
               $this->db->bind(':image', $data['image']);
               $this->db->bind(':user_id', $data['user_id']);
@@ -46,11 +46,33 @@ class Profile{
               $this->db->bind(':nationality', $data['nationality']);
               $this->db->bind(':religion', $data['religion']);
               $this->db->bind(':advocacy_partner', $data['advocacy_partner']);
-              
               $this->db->bind(':highest_educational_attainment', $data['highest_educational_attainment']);
               $this->db->bind(':no_of_years_in_school', $data['no_of_years_in_school']);
               $this->db->bind(':date_of_last_attendance_at_school', $data['date_of_last_attendance_at_school']);
               $this->db->bind(':occupation_prior_to_surrender', $data['occupation_prior_to_surrender']);
+              $this->db->bind(':number_of_siblings', $data['number_of_siblings']);
+              $this->db->bind(':ordinal_position', $data['ordinal_position']);
+              $this->db->bind(':living_arrangement', $data['living_arrangement']);
+              $this->db->bind(':estimated_monthly_inc', $data['estimated_monthly_inc']);
+              $this->db->bind(':name_of_father', $data['name_of_father']);
+              $this->db->bind(':occupation_of_father', $data['occupation_of_father']);
+              $this->db->bind(':name_of_mother', $data['name_of_mother']);
+              $this->db->bind(':occupation_of_mother', $data['occupation_of_mother']);
+              $this->db->bind(':name_of_spouse', $data['name_of_spouse']);
+              $this->db->bind(':occupation_of_spouse', $data['occupation_of_spouse']);
+              $this->db->bind(':address_of_spouse', $data['address_of_spouse']);
+              $this->db->bind(':age_at_first_drug_use', $data['age_at_first_drug_use']);
+              $this->db->bind(':date_of_last_drug_use', $data['date_of_last_drug_use']);
+              $this->db->bind(':length_of_drug_use', $data['length_of_drug_use']);
+              $this->db->bind(':frequency_of_drug_use', $data['frequency_of_drug_use']);
+              $this->db->bind(':means_to_support_drug_habbit', $data['means_to_support_drug_habbit']);
+              $this->db->bind(':area_where_drugs_are_being_abused', $data['area_where_drugs_are_being_abused']);
+              $this->db->bind(':daily_expense_on_drugs', $data['daily_expense_on_drugs']);
+              $this->db->bind(':source_of_drugs', $data['source_of_drugs']);
+              $this->db->bind(':place_of_drug_source', $data['place_of_drug_source']);
+              $this->db->bind(':primary_reason_for_using_drugs', $data['primary_reason_for_using_drugs']);
+              $this->db->bind(':drug_used_for_the_last_12_months', $data['drug_used_for_the_last_12_months']);
+              $this->db->bind(':date_of_drug_dependency_evaluation', $data['date_of_drug_dependency_evaluation']);
 
               if($this->db->execute()){
                      return true;

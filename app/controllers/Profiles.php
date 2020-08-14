@@ -45,11 +45,34 @@ class Profiles extends Controller {
                             'nationality' => trim($_POST['nationality']),
                             'religion' => trim($_POST['religion']),
                             'advocacy_partner' => trim($_POST['advocacy_partner']),
-
                             'highest_educational_attainment' => trim($_POST['highest_educational_attainment']),
                             'no_of_years_in_school' => trim($_POST['no_of_years_in_school']),
                             'date_of_last_attendance_at_school' => trim($_POST['date_of_last_attendance_at_school']),
                             'occupation_prior_to_surrender' => trim($_POST['occupation_prior_to_surrender']),
+                            'number_of_siblings' =>  trim($_POST['number_of_siblings']),
+                            'ordinal_position' =>  trim($_POST['ordinal_position']),
+                            'living_arrangement' =>  trim($_POST['living_arrangement']),
+                            'estimated_monthly_inc' =>  trim($_POST['estimated_monthly_inc']),
+                            'name_of_father' => trim($_POST['name_of_father']),
+                            'occupation_of_father' => trim($_POST['occupation_of_father']),
+                            'name_of_mother' => trim($_POST['name_of_mother']),
+                            'occupation_of_mother' => trim($_POST['occupation_of_mother']),
+                            'name_of_spouse' => trim($_POST['name_of_spouse']),
+                            'occupation_of_spouse' => trim($_POST['occupation_of_spouse']),
+                            'address_of_spouse' => trim($_POST['address_of_spouse']),
+                            'age_at_first_drug_use' => trim($_POST['age_at_first_drug_use']),
+                            'date_of_last_drug_use' => trim($_POST['date_of_last_drug_use']),
+                            'length_of_drug_use' => trim($_POST['length_of_drug_use']),
+                            'frequency_of_drug_use' => trim($_POST['frequency_of_drug_use']),
+                            'means_to_support_drug_habbit' => trim($_POST['means_to_support_drug_habbit']),
+                            'area_where_drugs_are_being_abused' => trim($_POST['area_where_drugs_are_being_abused']),
+                            'daily_expense_on_drugs' => trim($_POST['daily_expense_on_drugs']),
+                            'source_of_drugs' => trim($_POST['source_of_drugs']),
+
+                            'place_of_drug_source' => trim($_POST['place_of_drug_source']),
+                            'primary_reason_for_using_drugs' => trim($_POST['primary_reason_for_using_drugs']),
+                            'drug_used_for_the_last_12_months' => trim($_POST['drug_used_for_the_last_12_months']),
+                            'date_of_drug_dependency_evaluation' => trim($_POST['date_of_drug_dependency_evaluation']),
 
                             'control_no_err' => '',
                             'type_of_admission_err' => '',
@@ -70,11 +93,34 @@ class Profiles extends Controller {
                             'nationality_err' => '',
                             'religion_err' => '',
                             'advocacy_partner_err' => '',
-
                             'highest_educational_attainment_err' => '',
                             'no_of_years_in_school_err' => '',
                             'date_of_last_attendance_at_school_err' => '',
                             'occupation_prior_to_surrender_err' => '',
+                            'number_of_siblings_err' => '',
+                            'ordinal_position_err' => '',
+                            'living_arrangement_err' => '',
+                            'estimated_monthly_inc_err' => '',
+                            'name_of_father_err' => '',
+                            'occupation_of_father_err' => '',
+                            'name_of_mother_err' => '',
+                            'occupation_of_mother_err' => '',
+                            'name_of_spouse_err' => '',
+                            'occupation_of_spouse_err' => '',
+                            'address_of_spouse_err' => '',
+                            'age_at_first_drug_use_err' => '',
+                            'date_of_last_drug_use_err' => '',
+                            'length_of_drug_use_err' => '',
+                            'frequency_of_drug_use_err' => '',
+                            'means_to_support_drug_habbit_err' => '',
+                            'area_where_drugs_are_being_abused_err' => '',
+                            'daily_expense_on_drugs_err' => '',
+                            'source_of_drugs_err' => '',
+
+                            'place_of_drug_source_err' => '',
+                            'primary_reason_for_using_drugs_err' => '',
+                            'drug_used_for_the_last_12_months_err' => '',
+                            'date_of_drug_dependency_evaluation_err' => '',
                      ];
 
                      if(empty($data['control_no'])){
@@ -170,18 +216,100 @@ class Profiles extends Controller {
                      if(empty($data['occupation_prior_to_surrender'])){
                             $data['occupation_prior_to_surrender_err'] = 'Please provide control number';
                      }
-                     
-                     $existingProfile = $this->profileModel->existingProfile($data);
-                     
 
+                     if(empty($data['number_of_siblings'])){
+                            $data['number_of_siblings_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['ordinal_position'])){
+                            $data['ordinal_position_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['living_arrangement'])){
+                            $data['living_arrangement_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['estimated_monthly_inc'])){
+                            $data['estimated_monthly_inc_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['name_of_father'])){
+                            $data['name_of_father_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['occupation_of_father'])){
+                            $data['occupation_of_father_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['name_of_mother'])){
+                            $data['name_of_mother_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['occupation_of_mother'])){
+                            $data['occupation_of_mother_err'] = 'Please provide control number';
+                     }
+                     
+                     if(empty($data['name_of_spouse'])){
+                            $data['name_of_spouse_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['occupation_of_spouse'])){
+                            $data['occupation_of_spouse_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['address_of_spouse'])){
+                            $data['address_of_spouse_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['age_at_first_drug_use'])){
+                            $data['age_at_first_drug_use_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['date_of_last_drug_use'])){
+                            $data['date_of_last_drug_use_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['length_of_drug_use'])){
+                            $data['length_of_drug_use_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['frequency_of_drug_use'])){
+                            $data['frequency_of_drug_use_err'] = 'Please provide control number';
+                     }
+                     
+                     if(empty($data['means_to_support_drug_habbit'])){
+                            $data['means_to_support_drug_habbit_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['area_where_drugs_are_being_abused'])){
+                            $data['area_where_drugs_are_being_abused_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['daily_expense_on_drugs'])){
+                            $data['daily_expense_on_drugs_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['source_of_drugs'])){
+                            $data['source_of_drugs_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['place_of_drug_source'])){
+                            $data['place_of_drug_source_err'] = 'Please provide control number';
+                     }
+                     
+                     if(empty($data['primary_reason_for_using_drugs'])){
+                            $data['primary_reason_for_using_drugs_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['drug_used_for_the_last_12_months'])){
+                            $data['drug_used_for_the_last_12_months_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['date_of_drug_dependency_evaluation'])){
+                            $data['date_of_drug_dependency_evaluation_err'] = 'Please provide control number';
+                     }
+
+
+                     $existingProfile = $this->profileModel->existingProfile($data);
                      if($existingProfile){
                             $errMsg = 'Existing profile<br> Control No: ' . $existingProfile->control_no . '<br>Name: ' . $existingProfile->last_name . ', ' . $existingProfile->first_name;
 
                             flash('existing_profile', $errMsg, 'alert alert-danger');
                      }
-// && empty($data['occupation_prior_to_surrender_err']) && empty($data['date_of_last_attendance_at_school_err']) && empty($data['no_of_years_in_school_err']) && empty($data['highest_educational_attainment_err']) && empty($data['advocacy_partner_err']) && empty($data['religion_err']) && empty($data['nationality_err']) && empty($data['civil_status_err']) && empty($data['barangay_err']) && empty($data['district_err']) && empty($data['street_err']) && empty($data['house_no_err']) && empty($data['place_of_birth_err']) && empty($data['age_err']) && empty($data['date_of_birth_err']) && empty($data['aka_err']) && empty($data['sex_err']) && empty($data['extension_name_err'])
 
-                     if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err']) && empty($data['occupation_prior_to_surrender_err']) && empty($data['date_of_last_attendance_at_school_err']) && empty($data['no_of_years_in_school_err']) && empty($data['highest_educational_attainment_err']) && empty($data['advocacy_partner_err']) && empty($data['religion_err']) && empty($data['nationality_err']) && empty($data['civil_status_err']) && empty($data['barangay_err']) && empty($data['district_err']) && empty($data['street_err']) && empty($data['house_no_err']) && empty($data['place_of_birth_err']) && empty($data['age_err']) && empty($data['date_of_birth_err']) && empty($data['aka_err']) && empty($data['sex_err']) && empty($data['extension_name_err']) && !$existingProfile){
+
+                     if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err']) && empty($data['occupation_prior_to_surrender_err']) && empty($data['date_of_last_attendance_at_school_err']) && empty($data['no_of_years_in_school_err']) && empty($data['highest_educational_attainment_err']) && empty($data['advocacy_partner_err']) && empty($data['religion_err']) && empty($data['nationality_err']) && empty($data['civil_status_err']) && empty($data['barangay_err']) && empty($data['district_err']) && empty($data['street_err']) && empty($data['house_no_err']) && empty($data['place_of_birth_err']) && empty($data['age_err']) && empty($data['date_of_birth_err']) && empty($data['aka_err']) && empty($data['sex_err']) && empty($data['extension_name_err']) && empty($data['estimated_monthly_inc_err']) && empty($data['living_arrangement_err']) && empty($data['ordinal_position_err']) && empty($data['number_of_siblings_err']) && empty($data['name_of_father_err']) && empty($data['occupation_of_father_err']) && empty($data['name_of_mother_err']) && empty($data['occupation_of_mother_err']) && empty($data['name_of_spouse_err']) && empty($data['occupation_of_spouse_err']) && empty($data['address_of_spouse_err']) && empty($data['age_at_first_drug_use_err']) && empty($data['date_of_last_drug_use_err']) && empty($data['length_of_drug_use_err']) && empty($data['frequency_of_drug_use_err']) && empty($data['source_of_drugs_err']) && empty($data['daily_expense_on_drugs_err']) && empty($data['area_where_drugs_are_being_abused_err']) && empty($data['means_to_support_drug_habbit_err']) && empty($data['place_of_drug_source_err']) && empty($data['primary_reason_for_using_drugs_err']) && empty($data['drug_used_for_the_last_12_months_err']) && empty($data['date_of_drug_dependency_evaluation_err']) && !$existingProfile){
                             
                             // THIS IS WHERE U FETCH USERID and BRGY INFO TO ADD IN CONTROL NUMBER
                             if($this->profileModel->createProfile($data)){
@@ -218,12 +346,34 @@ class Profiles extends Controller {
                             'nationality' => '',
                             'religion' => '',
                             'advocacy_partner' => '',
-
                             'highest_educational_attainment' => '',
                             'no_of_years_in_school' => '',
                             'date_of_last_attendance_at_school' => '',
                             'occupation_prior_to_surrender' => '',
+                            'number_of_siblings' => '',
+                            'ordinal_position' => '',
+                            'living_arrangement' => '',
+                            'estimated_monthly_inc' => '',
+                            'name_of_father' => '',
+                            'occupation_of_father' => '',
+                            'name_of_mother' => '',
+                            'occupation_of_mother' => '',
+                            'name_of_spouse' => '',
+                            'occupation_of_spouse' => '',
+                            'address_of_spouse' => '',
+                            'age_at_first_drug_use' => '',
+                            'date_of_last_drug_use' => '',
+                            'length_of_drug_use' => '',
+                            'frequency_of_drug_use' => '',
+                            'means_to_support_drug_habbit' => '',
+                            'area_where_drugs_are_being_abused' => '',
+                            'daily_expense_on_drugs' => '',
+                            'source_of_drugs' => '',
 
+                            'place_of_drug_source' => '',
+                            'primary_reason_for_using_drugs' => '',
+                            'drug_used_for_the_last_12_months' => '',
+                            'date_of_drug_dependency_evaluation' => '',
 
                             'control_no_err' => '',
                             'type_of_admission_err' => '',
@@ -244,11 +394,34 @@ class Profiles extends Controller {
                             'nationality_err' => '',
                             'religion_err' => '',
                             'advocacy_partner_err' => '',
-
                             'highest_educational_attainment_err' => '',
                             'no_of_years_in_school_err' => '',
                             'date_of_last_attendance_at_school_err' => '',
                             'occupation_prior_to_surrender_err' => '',
+                            'number_of_siblings_err' => '',
+                            'ordinal_position_err' => '',
+                            'living_arrangement_err' => '',
+                            'estimated_monthly_inc_err' => '',
+                            'name_of_father_err' => '',
+                            'occupation_of_father_err' => '',
+                            'name_of_mother_err' => '',
+                            'occupation_of_mother_err' => '',
+                            'name_of_spouse_err' => '',
+                            'occupation_of_spouse_err' => '',
+                            'address_of_spouse_err' => '',
+                            'age_at_first_drug_use_err' => '',
+                            'date_of_last_drug_use_err' => '',
+                            'length_of_drug_use_err' => '',
+                            'frequency_of_drug_use_err' => '',
+                            'means_to_support_drug_habbit_err' => '',
+                            'area_where_drugs_are_being_abused_err' => '',
+                            'daily_expense_on_drugs_err' => '',
+                            'source_of_drugs_err' => '',
+
+                            'place_of_drug_source_err' => '',
+                            'primary_reason_for_using_drugs_err' => '',
+                            'drug_used_for_the_last_12_months_err' => '',
+                            'date_of_drug_dependency_evaluation_err' => '',
                      ];
 
                      $this->view('profiles/createProfile', $data);

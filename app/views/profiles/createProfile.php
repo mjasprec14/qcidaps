@@ -442,41 +442,63 @@
        <div class="form-row">
 
               <div class="form-group col-md-3">
-                                   <label for="number_of_siblings">Number of Siblings: </label>
-                                   <input type="text" id="number_of_siblings" name="number_of_siblings" class="form-control form-control-sm <?php echo (!empty($data['number_of_siblings_err'])) ? 'is-invalid' : '' ?>" value="<?php echo $data['number_of_siblings']; ?>"  >
+                            <label for="number_of_siblings">Number of Siblings</label>
+                                   <select name="number_of_siblings" id="number_of_siblings" class="form-control form-control-sm <?php echo !empty($data['number_of_siblings_err']) ? 'is-invalid' : ''; ?>">
+                                          <option selected value="<?php echo $data['number_of_siblings']; ?>"><?php echo $data['number_of_siblings']; ?></option>
+                                          <option value="None">None</option>
+                                          <option value="One sibling">One sibling</option>
+                                          <option value="Two siblings">Two siblings</option>
+                                          <option value="Three siblings">Three siblings</option>
+                                          <option value="Four siblings">Four siblings</option>
+                                   </select>
 
-                                   <span class="invalid-feedback"><?php echo $data['number_of_siblings_err']; ?></span> 
+                            <span class="invalid-feedback"><?php echo $data['number_of_siblings_err']; ?></span>
               </div>
 
               <div class="form-group col-md-3">
-                     <label for="ordinal_position">Ordinal Position at the Family</label>
-                            <select name="ordinal_position" id="ordinal_position" class="form-control form-control-sm <?php echo !empty($data['ordinal_position_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['ordinal_position']; ?>"><?php echo $data['ordinal_position']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
-                            </select>
+                            <label for="ordinal_position">Ordinal Position at the Family</label>
+                                   <select name="ordinal_position" id="ordinal_position" class="form-control form-control-sm <?php echo !empty($data['ordinal_position_err']) ? 'is-invalid' : ''; ?>">
+                                          <option selected value="<?php echo $data['ordinal_position']; ?>"><?php echo $data['ordinal_position']; ?></option>
+                                          <option value="Eldest">Eldest</option>
+                                          <option value="Middle Child">Middle Child</option>
+                                          <option value="Youngest">Youngest</option>
+                                   </select>
 
                             <span class="invalid-feedback"><?php echo $data['ordinal_position_err']; ?></span>
               </div>
 
               <div class="form-group col-md-3">
-                     <label for="living_arrangement">Living Arrangement</label>
-                            <select name="living_arrangement" id="living_arrangement" class="form-control form-control-sm <?php echo !empty($data['living_arrangement_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['living_arrangement']; ?>"><?php echo $data['living_arrangement']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
-                            </select>
+                            <label for="living_arrangement">Living Arrangement</label>
+                                   <select name="living_arrangement" id="living_arrangement" class="form-control form-control-sm <?php echo !empty($data['living_arrangement_err']) ? 'is-invalid' : ''; ?>">
+                                   <option selected value="<?php echo $data['living_arrangement']; ?>"><?php echo $data['living_arrangement']; ?></option>
+                                          <option value="With Parents">With Parents</option>
+                                          <option value="With Relatives">With Relatives</option>
+                                          <option value="With Spouse and Children">With Spouse and Children</option>
+                                          <option value="Alone">Alone</option>
+                                          <option value="With Children">With Children</option>
+                                          <option value="With Live in Partner">With Live in Partner</option>
+                                          <option value="With Siblings">With Siblings</option>
+                                          <option value="With Friends">With Friends</option>
+                                   </select>
 
                             <span class="invalid-feedback"><?php echo $data['living_arrangement_err']; ?></span>
               </div>
 
               <div class="form-group col-md-3">
-                     <label for="estimated_monthly_inc">Estimated Monthly Income</label>
-                            <select name="estimated_monthly_inc" id="estimated_monthly_inc" class="form-control form-control-sm <?php echo !empty($data['estimated_monthly_inc_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['estimated_monthly_inc']; ?>"><?php echo $data['estimated_monthly_inc']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
-                            </select>
+                            <label for="estimated_monthly_inc">Estimated Monthly Income</label>
+                                   <select name="estimated_monthly_inc" id="estimated_monthly_inc" class="form-control form-control-sm <?php echo !empty($data['estimated_monthly_inc_err']) ? 'is-invalid' : ''; ?>">
+                                          <option selected value="<?php echo $data['estimated_monthly_inc']; ?>"><?php echo $data['estimated_monthly_inc']; ?></option>
+                                          <option value="5000">5000</option>
+                                          <option value="10,000">10,000</option>
+                                          <option value="15,000">15,000</option>
+                                          <option value="20,000">20,000</option>
+                                          <option value="25,000">25,000</option>
+                                          <option value="30,000">30,000</option>
+                                          <option value="35,000">35,000</option>
+                                          <option value="40,000">40,000</option>
+                                          <option value="45,000">45,000</option>
+                                          <option value="50,000">50,000</option>
+                                   </select>
 
                             <span class="invalid-feedback"><?php echo $data['estimated_monthly_inc_err']; ?></span>                     
               </div>
@@ -494,14 +516,15 @@
               </div>
 
               <div class="form-group col-md-3">
-                     <label for="occupation_of_father">Occupation of Father</label>
-                            <select name="occupation_of_father" id="occupation_of_father" class="form-control form-control-sm <?php echo !empty($data['occupation_of_father_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['occupation_of_father']; ?>"><?php echo $data['occupation_of_father']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
-                            </select>
+                            <label for="occupation_of_father">Occupation of Father</label>
+                                   <select name="occupation_of_father" id="occupation_of_father" class="form-control form-control-sm <?php echo !empty($data['occupation_of_father_err']) ? 'is-invalid' : ''; ?>">
+                                          <option selected value="<?php echo $data['occupation_of_father']; ?>"><?php echo $data['occupation_of_father']; ?></option>
+                                          <option value="Employed">Employed</option>
+                                          <option value="Unemployed">Unemployed</option>
+                                          <option value="Self-Employed">Self-Employed</option>
+                                   </select>
 
-                     <span class="invalid-feedback"><?php echo $data['occupation_of_father_err']; ?></span>
+                            <span class="invalid-feedback"><?php echo $data['occupation_of_father_err']; ?></span>
               </div>
 
               <div class="form-group col-md-3">
@@ -515,8 +538,9 @@
                      <label for="occupation_of_mother">Occupation of Mother</label>
                             <select name="occupation_of_mother" id="occupation_of_mother" class="form-control form-control-sm <?php echo !empty($data['occupation_of_mother_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['occupation_of_mother']; ?>"><?php echo $data['occupation_of_mother']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="Employed">Employed</option>
+                                          <option value="Unemployed">Unemployed</option>
+                                          <option value="Self-Employed">Self-Employed</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['occupation_of_mother_err']; ?></span>
@@ -537,8 +561,9 @@
                      <label for="occupation_of_spouse">Occupation of Spouse</label>
                             <select name="occupation_of_spouse" id="occupation_of_spouse" class="form-control form-control-sm <?php echo !empty($data['occupation_of_spouse_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['occupation_of_spouse']; ?>"><?php echo $data['occupation_of_spouse']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="Employed">Employed</option>
+                                          <option value="Unemployed">Unemployed</option>
+                                          <option value="Self-Employed">Self-Employed</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['occupation_of_spouse_err']; ?></span>
@@ -554,17 +579,13 @@
 
 <!-- ROW START -->
 
-       <div class="form-row">
+       <div class="form-row"> 
 
               <div class="form-group col-md-2">
-                     <label for="age_at_first_drug_use">Age at First Drug Use</label>
-                            <select name="age_at_first_drug_use" id="age_at_first_drug_use" class="form-control form-control-sm <?php echo !empty($data['age_at_first_drug_use_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['age_at_first_drug_use']; ?>"><?php echo $data['age_at_first_drug_use']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
-                            </select>
+                            <label for="age_at_first_drug_use">Age at First Drug Use</label>
+                                   <input type="text" id="age_at_first_drug_use" name="age_at_first_drug_use" class="form-control form-control-sm <?php echo (!empty($data['age_at_first_drug_use_err'])) ? 'is-invalid' : '' ?>" value="<?php echo $data['age_at_first_drug_use']; ?>"  >
 
-                     <span class="invalid-feedback"><?php echo $data['age_at_first_drug_use_err']; ?></span>
+                            <span class="invalid-feedback"><?php echo $data['age_at_first_drug_use_err']; ?></span>
               </div>
 
               <div class="form-group col-md-2">
@@ -578,9 +599,11 @@
               <div class="form-group col-md-4">
                      <label for="length_of_drug_use">Length of Drug Use</label>
                             <select name="length_of_drug_use" id="length_of_drug_use" class="form-control form-control-sm <?php echo !empty($data['length_of_drug_use_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['length_of_drug_use']; ?>"><?php echo $data['length_of_drug_use']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option selected value="<?php echo $data['length_of_drug_use']; ?>"><?php echo $data['length_of_drug_use']; ?></option>
+                                          <option value="Less than 2 years">Less Than 2 Years</option>
+                                          <option value="Equal or More than 2 ears but less than 4 years">Equal or More than 2 ears but less than 4 years</option>
+                                          <option value="Equal or More than 4 ears but less than 6 years">Equal or More than 4 ears but less than 6 years</option>
+                                          <option value="Equal or more than 6 years">Equal or more than 6 years</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['length_of_drug_use_err']; ?></span>
@@ -589,9 +612,13 @@
               <div class="form-group col-md-4">
                      <label for="frequency_of_drug_use">Frequency of Drug Use</label>
                             <select name="frequency_of_drug_use" id="frequency_of_drug_use" class="form-control form-control-sm <?php echo !empty($data['frequency_of_drug_use_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['frequency_of_drug_use']; ?>"><?php echo $data['frequency_of_drug_use']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option selected value="<?php echo $data['frequency_of_drug_use']; ?>"><?php echo $data['frequency_of_drug_use']; ?></option>
+                                          <option value="Occasionally">Occasionally</option>
+                                          <option value="Daily">Daily</option>
+                                          <option value="Weekly">Weekly</option>
+                                          <option value="Monthly">Monthly</option>
+                                          <option value="2-5 times a week">2-5 times a week</option>
+                                          <option value="2-5 times a month">2-5 times a month</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['frequency_of_drug_use_err']; ?></span>
@@ -599,35 +626,67 @@
        </div>
 
 <!-- ROW START -->
-       <div class="form-row">
+       <div class="form-row"> 
               <div class="form-group col-md-3">
                      <label for="means_to_support_drug_habbit">Means to Support Drug Habit</label>
                             <select name="means_to_support_drug_habbit" id="means_to_support_drug_habbit" class="form-control form-control-sm <?php echo !empty($data['means_to_support_drug_habbit_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['means_to_support_drug_habbit']; ?>"><?php echo $data['means_to_support_drug_habbit']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option selected value="<?php echo $data['means_to_support_drug_habbit']; ?>"><?php echo $data['means_to_support_drug_habbit']; ?></option>
+                                          <option value="Allowance">Allowance</option>
+                                          <option value="Free">Free</option>
+                                          <option value="Work Income">Work Income</option>
+                                          <option value="Alms">Alms</option>
+                                          <option value="Stealing and Selling">Stealing and Selling</option>
+                                          <option value="Pushing and Running">Pushing and Running</option>
+                                          <option value="Gambling">Gambling</option>
+                                          <option value="Sex for Drugs(MSM)">Sex for Drugs(MSM)</option>
+                                          <option value="Self-Employed Work Income">Self-Employed Work Income</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['means_to_support_drug_habbit_err']; ?></span>
               </div>
-
+              
               <div class="form-group col-md-3">
                      <label for="area_where_drugs_are_being_abused">Area Where Drugs Are Being Abused</label>
                             <select name="area_where_drugs_are_being_abused" id="area_where_drugs_are_being_abused" class="form-control form-control-sm <?php echo !empty($data['area_where_drugs_are_being_abused_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['area_where_drugs_are_being_abused']; ?>"><?php echo $data['area_where_drugs_are_being_abused']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option selected value="<?php echo $data['area_where_drugs_are_being_abused']; ?>"><?php echo $data['area_where_drugs_are_being_abused']; ?></option>
+                                          <option value="Drug Den">Drug Den</option>
+                                          <option value="Own House">Own House</option>
+                                          <option value="Uncrowded Public Building / Structure">Uncrowded Public Building / Structure</option>
+                                          <option value="Friend's House">Friend's House</option>
+                                          <option value="School">School</option>
+                                          <option value="Work Place">Work Place</option>
+                                          <option value="Public Transport Terminal">Public Transport Terminal</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['area_where_drugs_are_being_abused_err']; ?></span>
               </div>
-
+              
               <div class="form-group col-md-3">
                      <label for="daily_expense_on_drugs">Daily Expense on Drugs</label>
                             <select name="daily_expense_on_drugs" id="daily_expense_on_drugs" class="form-control form-control-sm <?php echo !empty($data['daily_expense_on_drugs_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['daily_expense_on_drugs']; ?>"><?php echo $data['daily_expense_on_drugs']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="100 Below">100 Below</option>
+                                          <option value="100">100</option>
+                                          <option value="200">200</option>
+                                          <option value="300">300</option>
+                                          <option value="400">400</option>
+                                          <option value="500">500</option>
+                                          <option value="600">600</option>
+                                          <option value="700">700</option>
+                                          <option value="800">800</option>
+                                          <option value="900">900</option>
+                                          <option value="1,000">1,000</option>
+                                          <option value="1,100">1,100</option>
+                                          <option value="1,200">1,200</option>
+                                          <option value="1,300">1,300</option>
+                                          <option value="1,400">1,400</option>
+                                          <option value="1,500">1,500</option>
+                                          <option value="1,600">1,600</option>
+                                          <option value="1,700">1,700</option>
+                                          <option value="1,800">1,800</option>
+                                          <option value="1,900">1,900</option>
+                                          <option value="2,000">2,000</option>
+                                          <option value="2,000 Above">2,000 Above</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['daily_expense_on_drugs_err']; ?></span>
@@ -636,9 +695,12 @@
               <div class="form-group col-md-3">
                      <label for="source_of_drugs">Source of Drugs</label>
                             <select name="source_of_drugs" id="source_of_drugs" class="form-control form-control-sm <?php echo !empty($data['source_of_drugs_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['source_of_drugs']; ?>"><?php echo $data['source_of_drugs']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option selected value="<?php echo $data['source_of_drugs']; ?>"><?php echo $data['source_of_drugs']; ?></option>
+                                          <option value="Drug Store">Drug Store</option>
+                                          <option value="Friend">Friend</option>
+                                          <option value="Pusher">Pusher</option>
+                                          <option value="Relative">Relative</option>
+                                          <option value="Runner">Runner</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['source_of_drugs_err']; ?></span>
@@ -660,18 +722,33 @@
                      <label for="primary_reason_for_using_drugs">Primary Reason for Using Drugs</label>
                             <select name="primary_reason_for_using_drugs" id="primary_reason_for_using_drugs" class="form-control form-control-sm <?php echo !empty($data['primary_reason_for_using_drugs_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['primary_reason_for_using_drugs']; ?>"><?php echo $data['primary_reason_for_using_drugs']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="Curiosity / Experimentation">Curiosity / Experimentation</option>
+                                          <option value="Energy">Energy</option>
+                                          <option value="Family Problem">Family Problem</option>
+                                          <option value="Depression / Frustrations">Depression / Frustrations</option>
+                                          <option value="Peer Pressure">Peer Pressure</option>
+                                          <option value="For Income">For Income</option>
+                                          <option value="Self-Medication">Self-Medication</option>
+                                          <option value="Boredom">Boredom</option>
+                                          <option value="Intense Cravings (Relapse)">Intense Cravings (Relapse)</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['primary_reason_for_using_drugs_err']; ?></span>
               </div>
 
               <div class="form-group col-md-3">
-                     <label for="drug_used_for_the_last_12_months">Drugs Used for the Last 12 Months</label>
-                                   <input type="date" id="drug_used_for_the_last_12_months" name="drug_used_for_the_last_12_months" class="form-control form-control-sm <?php echo (!empty($data['drug_used_for_the_last_12_months_err'])) ? 'is-invalid' : '' ?>" value="<?php echo $data['drug_used_for_the_last_12_months']; ?>"  >
-
-                            <span class="invalid-feedback"><?php echo $data['drug_used_for_the_last_12_months_err']; ?></span>
+                     
+                     <label for="drug_used_for_the_last_12_months">Primary Reason for Using Drugs</label>
+                            <select name="drug_used_for_the_last_12_months" id="drug_used_for_the_last_12_months" class="form-control form-control-sm <?php echo !empty($data['drug_used_for_the_last_12_months_err']) ? 'is-invalid' : ''; ?>">
+                                          <option selected value="<?php echo $data['drug_used_for_the_last_12_months']; ?>"><?php echo $data['drug_used_for_the_last_12_months']; ?></option>
+                                          <option value="Cannabis">Cannabis</option>
+                                          <option value="Inhalants">Inhalants</option>
+                                          <option value="Narcotic Analgesics">Narcotic Analgesics</option>
+                                          <option value="Dissociative Anesthetics">Dissociative Anesthetics</option>
+                                          <option value="Hallucinogens">Hallucinogens</option>
+                                          <option value="CNS Stimulants">CNS Stimulants</option>
+                                          <option value="Central Nervous System (CNS) Depressants">Central Nervous System (CNS) Depressants</option>
+                            </select>
 
                      <span class="invalid-feedback"><?php echo $data['drug_used_for_the_last_12_months_err']; ?></span>
               </div>
