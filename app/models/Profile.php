@@ -23,7 +23,7 @@ class Profile{
        }
 
        public function createProfile($data){
-              $this->db->query('INSERT INTO profiles (image, user_id, control_no, type_of_admission, last_name, first_name, middle_name, extension_name) VALUES(:image, :user_id, :control_no, :type_of_admission, :last_name, :first_name, :middle_name, :extension_name)');
+              $this->db->query('INSERT INTO profiles (image, user_id, control_no, type_of_admission, last_name, first_name, middle_name, extension_name, sex, aka, date_of_birth, age, place_of_birth, house_no, street, district, barangay, civil_status, nationality, religion, advocacy_partner, highest_educational_attainment, no_of_years_in_school, date_of_last_attendance_at_school, occupation_prior_to_surrender) VALUES(:image, :user_id, :control_no, :type_of_admission, :last_name, :first_name, :middle_name, :extension_name, :sex, :aka, :date_of_birth, :age, :place_of_birth, :house_no, :street, :district, :barangay, :civil_status, :nationality, :religion, :advocacy_partner, :highest_educational_attainment, :no_of_years_in_school, :date_of_last_attendance_at_school, :occupation_prior_to_surrender)');
 
               $this->db->bind(':image', $data['image']);
               $this->db->bind(':user_id', $data['user_id']);
@@ -33,6 +33,24 @@ class Profile{
               $this->db->bind(':first_name', $data['first_name']);
               $this->db->bind(':middle_name', $data['middle_name']);
               $this->db->bind(':extension_name', $data['extension_name']);
+              $this->db->bind(':sex', $data['sex']);
+              $this->db->bind(':aka', $data['aka']);
+              $this->db->bind(':date_of_birth', $data['date_of_birth']);
+              $this->db->bind(':age', $data['age']);
+              $this->db->bind(':place_of_birth', $data['place_of_birth']);
+              $this->db->bind(':house_no', $data['house_no']);
+              $this->db->bind(':street', $data['street']);
+              $this->db->bind(':district', $data['district']);
+              $this->db->bind(':barangay', $data['barangay']);
+              $this->db->bind(':civil_status', $data['civil_status']);
+              $this->db->bind(':nationality', $data['nationality']);
+              $this->db->bind(':religion', $data['religion']);
+              $this->db->bind(':advocacy_partner', $data['advocacy_partner']);
+              
+              $this->db->bind(':highest_educational_attainment', $data['highest_educational_attainment']);
+              $this->db->bind(':no_of_years_in_school', $data['no_of_years_in_school']);
+              $this->db->bind(':date_of_last_attendance_at_school', $data['date_of_last_attendance_at_school']);
+              $this->db->bind(':occupation_prior_to_surrender', $data['occupation_prior_to_surrender']);
 
               if($this->db->execute()){
                      return true;

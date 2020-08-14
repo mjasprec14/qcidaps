@@ -37,6 +37,20 @@ class Profiles extends Controller {
                             'date_of_birth' => trim($_POST['date_of_birth']),
                             'age' =>  trim($_POST['age']),
                             'place_of_birth' => trim($_POST['place_of_birth']),
+                            'house_no' => trim($_POST['house_no']),
+                            'street' => trim($_POST['street']),
+                            'district' => trim($_POST['district']),
+                            'barangay' => trim($_POST['barangay']),
+                            'civil_status' => trim($_POST['civil_status']),
+                            'nationality' => trim($_POST['nationality']),
+                            'religion' => trim($_POST['religion']),
+                            'advocacy_partner' => trim($_POST['advocacy_partner']),
+
+                            'highest_educational_attainment' => trim($_POST['highest_educational_attainment']),
+                            'no_of_years_in_school' => trim($_POST['no_of_years_in_school']),
+                            'date_of_last_attendance_at_school' => trim($_POST['date_of_last_attendance_at_school']),
+                            'occupation_prior_to_surrender' => trim($_POST['occupation_prior_to_surrender']),
+
                             'control_no_err' => '',
                             'type_of_admission_err' => '',
                             'last_name_err' => '',
@@ -48,6 +62,19 @@ class Profiles extends Controller {
                             'date_of_birth_err' => '',
                             'age_err' =>  '',
                             'place_of_birth_err' => '',
+                            'house_no_err' => '',
+                            'street_err' => '',
+                            'district_err' => '',
+                            'barangay_err' => '',
+                            'civil_status_err' => '',
+                            'nationality_err' => '',
+                            'religion_err' => '',
+                            'advocacy_partner_err' => '',
+
+                            'highest_educational_attainment_err' => '',
+                            'no_of_years_in_school_err' => '',
+                            'date_of_last_attendance_at_school_err' => '',
+                            'occupation_prior_to_surrender_err' => '',
                      ];
 
                      if(empty($data['control_no'])){
@@ -95,7 +122,55 @@ class Profiles extends Controller {
                      if(empty($data['place_of_birth'])){
                             $data['place_of_birth_err'] = 'Please provide place of birth';
                      }
+                     
+                     if(empty($data['house_no'])){
+                            $data['house_no_err'] = 'Please provide control number';
+                     }
 
+                     if(empty($data['street'])){
+                            $data['street_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['district'])){
+                            $data['district_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['barangay'])){
+                            $data['barangay_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['civil_status'])){
+                            $data['civil_status_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['nationality'])){
+                            $data['nationality_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['religion'])){
+                            $data['religion_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['advocacy_partner'])){
+                            $data['advocacy_partner_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['highest_educational_attainment'])){
+                            $data['highest_educational_attainment_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['no_of_years_in_school'])){
+                            $data['no_of_years_in_school_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['date_of_last_attendance_at_school'])){
+                            $data['date_of_last_attendance_at_school_err'] = 'Please provide control number';
+                     }
+
+                     if(empty($data['occupation_prior_to_surrender'])){
+                            $data['occupation_prior_to_surrender_err'] = 'Please provide control number';
+                     }
+                     
                      $existingProfile = $this->profileModel->existingProfile($data);
                      
 
@@ -104,9 +179,9 @@ class Profiles extends Controller {
 
                             flash('existing_profile', $errMsg, 'alert alert-danger');
                      }
+// && empty($data['occupation_prior_to_surrender_err']) && empty($data['date_of_last_attendance_at_school_err']) && empty($data['no_of_years_in_school_err']) && empty($data['highest_educational_attainment_err']) && empty($data['advocacy_partner_err']) && empty($data['religion_err']) && empty($data['nationality_err']) && empty($data['civil_status_err']) && empty($data['barangay_err']) && empty($data['district_err']) && empty($data['street_err']) && empty($data['house_no_err']) && empty($data['place_of_birth_err']) && empty($data['age_err']) && empty($data['date_of_birth_err']) && empty($data['aka_err']) && empty($data['sex_err']) && empty($data['extension_name_err'])
 
-
-                     if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err']) && !$existingProfile){
+                     if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err']) && empty($data['occupation_prior_to_surrender_err']) && empty($data['date_of_last_attendance_at_school_err']) && empty($data['no_of_years_in_school_err']) && empty($data['highest_educational_attainment_err']) && empty($data['advocacy_partner_err']) && empty($data['religion_err']) && empty($data['nationality_err']) && empty($data['civil_status_err']) && empty($data['barangay_err']) && empty($data['district_err']) && empty($data['street_err']) && empty($data['house_no_err']) && empty($data['place_of_birth_err']) && empty($data['age_err']) && empty($data['date_of_birth_err']) && empty($data['aka_err']) && empty($data['sex_err']) && empty($data['extension_name_err']) && !$existingProfile){
                             
                             // THIS IS WHERE U FETCH USERID and BRGY INFO TO ADD IN CONTROL NUMBER
                             if($this->profileModel->createProfile($data)){
@@ -135,6 +210,21 @@ class Profiles extends Controller {
                             'date_of_birth' => '',
                             'age' => '',
                             'place_of_birth' => '',
+                            'house_no' => '',
+                            'street' => '',
+                            'district' => '',
+                            'barangay' => '',
+                            'civil_status' => '',
+                            'nationality' => '',
+                            'religion' => '',
+                            'advocacy_partner' => '',
+
+                            'highest_educational_attainment' => '',
+                            'no_of_years_in_school' => '',
+                            'date_of_last_attendance_at_school' => '',
+                            'occupation_prior_to_surrender' => '',
+
+
                             'control_no_err' => '',
                             'type_of_admission_err' => '',
                             'last_name_err' => '',
@@ -146,6 +236,19 @@ class Profiles extends Controller {
                             'date_of_birth_err' => '',
                             'age_err' =>  '',
                             'place_of_birth_err' => '',
+                            'house_no_err' => '',
+                            'street_err' => '',
+                            'district_err' => '',
+                            'barangay_err' => '',
+                            'civil_status_err' => '',
+                            'nationality_err' => '',
+                            'religion_err' => '',
+                            'advocacy_partner_err' => '',
+
+                            'highest_educational_attainment_err' => '',
+                            'no_of_years_in_school_err' => '',
+                            'date_of_last_attendance_at_school_err' => '',
+                            'occupation_prior_to_surrender_err' => '',
                      ];
 
                      $this->view('profiles/createProfile', $data);
