@@ -10,7 +10,9 @@ class Profile{
        public function getProfile(){
               $this->db->query('SELECT *,
               profiles.id as profileId,
-              users.id as userId
+              users.id as userId,
+              profiles.created_at as profileCreated,
+              users.created_at as userCreated
               FROM profiles
               INNER JOIN users
               ON profiles.user_id = users.id
@@ -106,7 +108,7 @@ class Profile{
 
        public function updateProfile($data){
               $this->db->query('UPDATE profiles SET  
-              image = :image,
+              -- image = :image,
               control_no = :control_no, 
               type_of_admission = :type_of_admission, 
               last_name = :last_name, 
@@ -176,11 +178,8 @@ class Profile{
               applied_in_plea_bargaining = :applied_in_plea_bargaining, 
               plea_bargaining_remarks = :plea_bargaining_remarks  WHERE id = :id');
               
- 
-              
-              
-              $this->db->bind(':image', $data['image']); 
-              // $this->db->bind(':user_id', $data['user_id']);
+
+              // $this->db->bind(':image', $data['image']); 
               $this->db->bind(':id', $data['id']);
               $this->db->bind(':control_no', $data['control_no']);
               $this->db->bind(':type_of_admission', $data['type_of_admission']);
@@ -272,7 +271,9 @@ class Profile{
        public function searchByCtrlNo($item){
                      $this->db->query('SELECT *,
                      profiles.id as profileId,
-                     users.id as userId
+                     users.id as userId,
+                     profiles.created_at as profileCreated,
+                     users.created_at as userCreated
                      FROM profiles
                      INNER JOIN users
                      ON profiles.user_id = users.id
@@ -291,7 +292,9 @@ class Profile{
        public function searchByLastName($lastname){
               $this->db->query('SELECT *,
                      profiles.id as profileId,
-                     users.id as userId
+                     users.id as userId,
+                     profiles.created_at as profileCreated,
+                     users.created_at as userCreated
                      FROM profiles
                      INNER JOIN users
                      ON profiles.user_id = users.id

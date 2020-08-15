@@ -575,11 +575,12 @@ class Profiles extends Controller {
               if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-                     $target = 'img/'.basename($_FILES['image']['name']);
+                     // $target = 'img/'.basename($_FILES['image']['name']);
                      
+
                      $data = [
                             'id' => $id,
-                            'image' => $_FILES['image']['name'],
+                            // 'image' => $_FILES['image']['name'],
                             'user_id' => $_SESSION['user_id'],
                             'control_no' => trim($_POST['control_no']),
                             'type_of_admission' => trim($_POST['type_of_admission']),
@@ -1121,7 +1122,6 @@ class Profiles extends Controller {
                             'name' => '',
                             'created_at' => '',
                             'profileId' => '',
-                            
 
                             'filter_by' => '',
                             'search_item' => '',
@@ -1143,6 +1143,7 @@ class Profiles extends Controller {
                                    'name' => $profile->name,
                                    'created_at' => $profile->created_at,
                                    'profileId' => $profile->profileId,
+                                   'profileCreated' => $profile->profileCreated,
                                    'search_item' => '',
                                    'control_no' => $profile->control_no,
                                    'last_name' => $profile->last_name,

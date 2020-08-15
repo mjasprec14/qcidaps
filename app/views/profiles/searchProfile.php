@@ -44,7 +44,7 @@
 
                             <div class="row">
                                    <div class="col-md-9">
-                                          <p>Created by <?php echo $data['name']; ?> on <?php echo $data['created_at']; ?></p>
+                                          <p>Created by <?php echo $data['name']; ?> on <?php echo $data['profileCreated']; ?></p>
                                    </div>
 
                                    <div class="col-md-3">

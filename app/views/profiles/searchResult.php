@@ -44,7 +44,7 @@
 
                                    <div class="row">
                                           <div class="col-md-9">
-                                                 <p>Created by <?php echo $profiles->name; ?> on <?php echo $profiles->created_at; ?></p>
+                                                 <p>Created by <?php echo $profiles->name; ?> on <?php echo $profiles->profileCreated; ?></p>
                                           </div>
 
                                           <div class="col-md-3">
