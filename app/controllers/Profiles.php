@@ -88,17 +88,12 @@ class Profiles extends Controller {
                             'end_date' => trim($_POST['end_date']),
                             'provided_by' => trim($_POST['provided_by']),
                             'complete_flag' => trim($_POST['complete_flag']),
-
-                                 
-
                             'intervention_provided_recommendation' => trim($_POST['intervention_provided_recommendation']),
                             'remarks' => trim($_POST['remarks']),
                             'others_current_status' => trim($_POST['others_current_status']),
                             'enrolled_in_sustainability' => trim($_POST['enrolled_in_sustainability']),
                             'applied_in_plea_bargaining' => trim($_POST['applied_in_plea_bargaining']),
                             'plea_bargaining_remarks' => trim($_POST['plea_bargaining_remarks']),
-                            
-
                             'control_no_err' => '',
                             'type_of_admission_err' => '',
                             'last_name_err' => '',
@@ -145,7 +140,6 @@ class Profiles extends Controller {
                             'primary_reason_for_using_drugs_err' => '',
                             'drug_used_for_the_last_12_months_err' => '',
                             'date_of_drug_dependency_evaluation_err' => '',
-
                             'risk_level_assist_err' => '',
                             'date_of_screening_assist_err' => '',
                             'name_of_social_worker_err' => '',
@@ -158,7 +152,6 @@ class Profiles extends Controller {
                             'end_date_err' => '',
                             'provided_by_err' => '',
                             'complete_flag_err' => '',
-
                             'intervention_provided_recommendation_err' => '',
                             'remarks_err' => '',
                             'others_current_status_err' => '',
@@ -214,205 +207,201 @@ class Profiles extends Controller {
                      }
                      
                      if(empty($data['house_no'])){
-                            $data['house_no_err'] = 'Please provide control number';
+                            $data['house_no_err'] = 'Please provide control house number';
                      }
 
                      if(empty($data['street'])){
-                            $data['street_err'] = 'Please provide control number';
+                            $data['street_err'] = 'Please provide street number';
                      }
 
                      if(empty($data['district'])){
-                            $data['district_err'] = 'Please provide control number';
+                            $data['district_err'] = 'Please provide district';
                      }
 
                      if(empty($data['barangay'])){
-                            $data['barangay_err'] = 'Please provide control number';
+                            $data['barangay_err'] = 'Please provide barangay';
                      }
 
                      if(empty($data['civil_status'])){
-                            $data['civil_status_err'] = 'Please provide control number';
+                            $data['civil_status_err'] = 'Please provide civil status';
                      }
 
                      if(empty($data['nationality'])){
-                            $data['nationality_err'] = 'Please provide control number';
+                            $data['nationality_err'] = 'Please provide nationality';
                      }
 
                      if(empty($data['religion'])){
-                            $data['religion_err'] = 'Please provide control number';
+                            $data['religion_err'] = 'Please provide religion';
                      }
 
                      if(empty($data['advocacy_partner'])){
-                            $data['advocacy_partner_err'] = 'Please provide control number';
+                            $data['advocacy_partner_err'] = 'Please provide advocacy partner';
                      }
 
                      if(empty($data['highest_educational_attainment'])){
-                            $data['highest_educational_attainment_err'] = 'Please provide control number';
+                            $data['highest_educational_attainment_err'] = 'Please provide educational attainment';
                      }
 
                      if(empty($data['no_of_years_in_school'])){
-                            $data['no_of_years_in_school_err'] = 'Please provide control number';
+                            $data['no_of_years_in_school_err'] = 'Please provide years in school';
                      }
 
                      if(empty($data['date_of_last_attendance_at_school'])){
-                            $data['date_of_last_attendance_at_school_err'] = 'Please provide control number';
+                            $data['date_of_last_attendance_at_school_err'] = 'Please provide date of last attendance at school';
                      }
 
                      if(empty($data['occupation_prior_to_surrender'])){
-                            $data['occupation_prior_to_surrender_err'] = 'Please provide control number';
+                            $data['occupation_prior_to_surrender_err'] = 'Please provide occupation prior to surrender';
                      }
 
                      if(empty($data['number_of_siblings'])){
-                            $data['number_of_siblings_err'] = 'Please provide control number';
+                            $data['number_of_siblings_err'] = 'Please provide number of siblings';
                      }
                      if(empty($data['ordinal_position'])){
-                            $data['ordinal_position_err'] = 'Please provide control number';
+                            $data['ordinal_position_err'] = 'Please provide ordinal position';
                      }
                      if(empty($data['living_arrangement'])){
-                            $data['living_arrangement_err'] = 'Please provide control number';
+                            $data['living_arrangement_err'] = 'Please provide living arrangement';
                      }
                      if(empty($data['estimated_monthly_inc'])){
-                            $data['estimated_monthly_inc_err'] = 'Please provide control number';
+                            $data['estimated_monthly_inc_err'] = 'Please provide estimated monthly inc';
                      }
 
                      if(empty($data['name_of_father'])){
-                            $data['name_of_father_err'] = 'Please provide control number';
+                            $data['name_of_father_err'] = 'Please provide nameoffather';
                      }
 
                      if(empty($data['occupation_of_father'])){
-                            $data['occupation_of_father_err'] = 'Please provide control number';
+                            $data['occupation_of_father_err'] = 'Please provide occupation of father';
                      }
 
                      if(empty($data['name_of_mother'])){
-                            $data['name_of_mother_err'] = 'Please provide control number';
+                            $data['name_of_mother_err'] = 'Please provide name of mother';
                      }
 
                      if(empty($data['occupation_of_mother'])){
-                            $data['occupation_of_mother_err'] = 'Please provide control number';
+                            $data['occupation_of_mother_err'] = 'Please provide occupation of mother';
                      }
                      
                      if(empty($data['name_of_spouse'])){
-                            $data['name_of_spouse_err'] = 'Please provide control number';
+                            $data['name_of_spouse_err'] = 'Please provide name of spouse';
                      }
                      if(empty($data['occupation_of_spouse'])){
-                            $data['occupation_of_spouse_err'] = 'Please provide control number';
+                            $data['occupation_of_spouse_err'] = 'Please provide occupation of spouse';
                      }
                      if(empty($data['address_of_spouse'])){
-                            $data['address_of_spouse_err'] = 'Please provide control number';
+                            $data['address_of_spouse_err'] = 'Please provide address of spouse';
                      }
 
                      if(empty($data['age_at_first_drug_use'])){
-                            $data['age_at_first_drug_use_err'] = 'Please provide control number';
+                            $data['age_at_first_drug_use_err'] = 'Please provide age at first drug use';
                      }
 
                      if(empty($data['date_of_last_drug_use'])){
-                            $data['date_of_last_drug_use_err'] = 'Please provide control number';
+                            $data['date_of_last_drug_use_err'] = 'Please provide date of last drug use';
                      }
 
                      if(empty($data['length_of_drug_use'])){
-                            $data['length_of_drug_use_err'] = 'Please provide control number';
+                            $data['length_of_drug_use_err'] = 'Please provide length of drug use';
                      }
 
                      if(empty($data['frequency_of_drug_use'])){
-                            $data['frequency_of_drug_use_err'] = 'Please provide control number';
+                            $data['frequency_of_drug_use_err'] = 'Please provide frequency of drug use';
                      }
                      
                      if(empty($data['means_to_support_drug_habbit'])){
-                            $data['means_to_support_drug_habbit_err'] = 'Please provide control number';
+                            $data['means_to_support_drug_habbit_err'] = 'Please provide means to support drug habbit';
                      }
                      if(empty($data['area_where_drugs_are_being_abused'])){
-                            $data['area_where_drugs_are_being_abused_err'] = 'Please provide control number';
+                            $data['area_where_drugs_are_being_abused_err'] = 'Please provide area where drugs are being abused';
                      }
                      if(empty($data['daily_expense_on_drugs'])){
-                            $data['daily_expense_on_drugs_err'] = 'Please provide control number';
+                            $data['daily_expense_on_drugs_err'] = 'Please provide daily expense on drugs';
                      }
                      if(empty($data['source_of_drugs'])){
-                            $data['source_of_drugs_err'] = 'Please provide control number';
+                            $data['source_of_drugs_err'] = 'Please provide source of drugs';
                      }
                      if(empty($data['place_of_drug_source'])){
-                            $data['place_of_drug_source_err'] = 'Please provide control number';
+                            $data['place_of_drug_source_err'] = 'Please provide place of drug source';
                      }
                      
                      if(empty($data['primary_reason_for_using_drugs'])){
-                            $data['primary_reason_for_using_drugs_err'] = 'Please provide control number';
+                            $data['primary_reason_for_using_drugs_err'] = 'Please provide primary reason for using drugs';
                      }
 
                      if(empty($data['drug_used_for_the_last_12_months'])){
-                            $data['drug_used_for_the_last_12_months_err'] = 'Please provide control number';
+                            $data['drug_used_for_the_last_12_months_err'] = 'Please provide drug used for the last 12 months';
                      }
 
                      if(empty($data['date_of_drug_dependency_evaluation'])){
-                            $data['date_of_drug_dependency_evaluation_err'] = 'Please provide control number';
+                            $data['date_of_drug_dependency_evaluation_err'] = 'Please provide date of drug dependency evaluation';
                      }
                      if(empty($data['name_of_physician_doh'])){
-                            $data['name_of_physician_doh_err'] = 'Please provide control number';
+                            $data['name_of_physician_doh_err'] = 'Please provide name of physician doh';
                      }
                      if(empty($data['findings_recommendations'])){
-                            $data['findings_recommendations_err'] = 'Please provide control number';
+                            $data['findings_recommendations_err'] = 'Please provide findings recommendations';
                      }
                      if(empty($data['facility_type'])){
-                            $data['facility_type_err'] = 'Please provide control number';
+                            $data['facility_type_err'] = 'Please provide facility type';
                      }
                      if(empty($data['intervention'])){
-                            $data['intervention_err'] = 'Please provide control number';
+                            $data['intervention_err'] = 'Please provide intervention';
                      }
                      if(empty($data['risk_level_assist'])){
-                            $data['risk_level_assist_err'] = 'Please provide control number';
+                            $data['risk_level_assist_err'] = 'Please provide risk level assist';
                      }
                      if(empty($data['date_of_screening_assist'])){
-                            $data['date_of_screening_assist_err'] = 'Please provide control number';
+                            $data['date_of_screening_assist_err'] = 'Please provide date of screening assist';
                      }
                      if(empty($data['name_of_social_worker'])){
-                            $data['name_of_social_worker_err'] = 'Please provide control number';
+                            $data['name_of_social_worker_err'] = 'Please provide name of social worker';
                      }
                      if(empty($data['referred_to_result_of_screening'])){
-                            $data['referred_to_result_of_screening_err'] = 'Please provide control number';
+                            $data['referred_to_result_of_screening_err'] = 'Please provide required field';
                      }
                      if(empty($data['assessment_result'])){
-                            $data['assessment_result_err'] = 'Please provide control number';
+                            $data['assessment_result_err'] = 'Please provide assessment result';
                      }
                      if(empty($data['re_dde_date'])){
-                            $data['re_dde_date_err'] = 'Please provide control number';
+                            $data['re_dde_date_err'] = 'Please provide date';
                      }
                      if(empty($data['name_of_physician_dde'])){
-                            $data['name_of_physician_dde_err'] = 'Please provide control number';
+                            $data['name_of_physician_dde_err'] = 'Please provide name of physician';
                      }
                      if(empty($data['findings_recommendations_dde'])){
-                            $data['findings_recommendations_dde_err'] = 'Please provide control number';
+                            $data['findings_recommendations_dde_err'] = 'Please provide findings/recommendation';
                      }
                      if(empty($data['start_date'])){
-                            $data['start_date_err'] = 'Please provide control number';
+                            $data['start_date_err'] = 'Please provide start date';
                      }
                      if(empty($data['end_date'])){
-                            $data['end_date_err'] = 'Please provide control number';
+                            $data['end_date_err'] = 'Please provide end date';
                      }
                      if(empty($data['provided_by'])){
-                            $data['provided_by_err'] = 'Please provide control number';
+                            $data['provided_by_err'] = 'Please provide required field';
                      }
                      if(empty($data['complete_flag'])){
-                            $data['complete_flag_err'] = 'Please provide control number';
+                            $data['complete_flag_err'] = 'Please provide required field';
                      }
                      if(empty($data['intervention_provided_recommendation'])){
-                            $data['intervention_provided_recommendation_err'] = 'Please provide control number';
+                            $data['intervention_provided_recommendation_err'] = 'Please provide required field';
                      }
                      if(empty($data['remarks'])){
-                            $data['remarks_err'] = 'Please provide control number';
+                            $data['remarks_err'] = 'Please provide remarks';
                      }
                      if(empty($data['others_current_status'])){
-                            $data['others_current_status_err'] = 'Please provide control number';
+                            $data['others_current_status_err'] = 'Please provide required field';
                      }
                      if(empty($data['enrolled_in_sustainability'])){
-                            $data['enrolled_in_sustainability_err'] = 'Please provide control number';
+                            $data['enrolled_in_sustainability_err'] = 'Please provide required field';
                      }
                      if(empty($data['applied_in_plea_bargaining'])){
-                            $data['applied_in_plea_bargaining_err'] = 'Please provide control number';
+                            $data['applied_in_plea_bargaining_err'] = 'Please provide required field';
                      }
                      if(empty($data['plea_bargaining_remarks'])){
-                            $data['plea_bargaining_remarks_err'] = 'Please provide control number';
-                     }
-
-                     
-                     
-                      
+                            $data['plea_bargaining_remarks_err'] = 'Please provide required field';
+                     }  
 
                      $existingProfile = $this->profileModel->existingProfile($data);
                      if($existingProfile){
@@ -490,8 +479,6 @@ class Profiles extends Controller {
                             'findings_recommendations' => '',
                             'facility_type' => '',
                             'intervention' => '',
-
-                            
                             'risk_level_assist' => '',
                             'date_of_screening_assist' => '',
                             'name_of_social_worker' => '',
@@ -504,15 +491,12 @@ class Profiles extends Controller {
                             'end_date' => '',
                             'provided_by' => '',
                             'complete_flag' => '',
-
                             'intervention_provided_recommendation' => '',
                             'remarks' => '',
                             'others_current_status' => '',
                             'enrolled_in_sustainability' => '',
                             'applied_in_plea_bargaining' => '',
                             'plea_bargaining_remarks' => '',
-                     
-
                             'control_no_err' => '',
                             'type_of_admission_err' => '',
                             'last_name_err' => '',
@@ -563,7 +547,6 @@ class Profiles extends Controller {
                             'findings_recommendations_err' => '',
                             'facility_type_err' => '',
                             'intervention_err' => '',
-
                             'risk_level_assist_err' => '',
                             'date_of_screening_assist_err' => '',
                             'name_of_social_worker_err' => '',
@@ -576,7 +559,6 @@ class Profiles extends Controller {
                             'end_date_err' => '',
                             'provided_by_err' => '',
                             'complete_flag_err' => '',
-
                             'intervention_provided_recommendation_err' => '',
                             'remarks_err' => '',
                             'others_current_status_err' => '',
