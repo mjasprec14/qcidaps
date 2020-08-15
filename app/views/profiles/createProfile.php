@@ -772,9 +772,15 @@
               <div class="form-group col-md-3">
                      <label for="findings_recommendations">Findings / Recommendations</label>
                             <select name="findings_recommendations" id="findings_recommendations" class="form-control form-control-sm <?php echo !empty($data['findings_recommendations_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['findings_recommendations']; ?>"><?php echo $data['findings_recommendations']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+
+                                          <option selected value="<?php echo $data['findings_recommendations']; ?>"><?php echo $data['findings_recommendations']; ?></option>
+                                          <option value="Drug Free">Drug Free</option>
+                                          <option value="For Counseling">For Counseling</option>
+                                          <option value="For Community Based Rehab Program - CBRP">For Community Based Rehab Program - CBRP</option>
+                                          <option value="For Drug Test">For Drug Test</option>
+                                          <option value="Psychiatric Treatment">Psychiatric Treatment</option>
+                                          <option value="For Legal Action">For Legal Action</option>
+                                          <option value="For Treatment and Rehabilitation">For Treatment and Rehabilitation</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['findings_recommendations_err']; ?></span>
@@ -783,9 +789,9 @@
               <div class="form-group col-md-3">
                      <label for="facility_type">Facility Type</label>
                             <select name="facility_type" id="facility_type" class="form-control form-control-sm <?php echo !empty($data['facility_type_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['facility_type']; ?>"><?php echo $data['facility_type']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option selected value="<?php echo $data['facility_type']; ?>"><?php echo $data['facility_type']; ?></option>
+                                          <option value="Option to Follow">Option to Follow</option>
+                                          <option value="Option to Follow">Option to Follow</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['facility_type_err']; ?></span>
@@ -795,8 +801,8 @@
                      <label for="intervention">Intervention</label>
                             <select name="intervention" id="intervention" class="form-control form-control-sm <?php echo !empty($data['intervention_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['intervention']; ?>"><?php echo $data['intervention']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="Option to Follow">Option to Follow</option>
+                                          <option value="Option to Follow">Option to Follow</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['intervention_err']; ?></span>
@@ -808,19 +814,20 @@
                      <label for="risk_level_assist">Risk Level / Assist</label>
                             <select name="risk_level_assist" id="risk_level_assist" class="form-control form-control-sm <?php echo !empty($data['risk_level_assist_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['risk_level_assist']; ?>"><?php echo $data['risk_level_assist']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="Mild">Mild</option>
+                                          <option value="Moderate">Moderate</option>
+                                          <option value="Severe">Severe</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['risk_level_assist_err']; ?></span>
               </div>
-
+              
               <div class="form-group col-md-3">
-                     <label for="date_of_screening_assist">Date of Screening / Assist</label>
+                     <label for="date_of_screening_assist">Date of Screening / ASSIST</label>
                             <select name="date_of_screening_assist" id="date_of_screening_assist" class="form-control form-control-sm <?php echo !empty($data['date_of_screening_assist_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['date_of_screening_assist']; ?>"><?php echo $data['date_of_screening_assist']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="Option to Follow">Option to Follow</option>
+                                          <option value="Option to Follow">Option to Follow</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['date_of_screening_assist_err']; ?></span>
@@ -837,8 +844,9 @@
                      <label for="referred_to_result_of_screening">Referred to (Result of Screening)</label>
                             <select name="referred_to_result_of_screening" id="referred_to_result_of_screening" class="form-control form-control-sm <?php echo !empty($data['referred_to_result_of_screening_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['referred_to_result_of_screening']; ?>"><?php echo $data['referred_to_result_of_screening']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="Counseling">Counseling</option>
+                                          <option value="Drug Dependency Evaluation">Drug Dependency Evaluation</option>
+                                          <option value="Rehabilitation">Rehabilitation</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['referred_to_result_of_screening_err']; ?></span>
@@ -871,8 +879,10 @@
                      <label for="findings_recommendations_dde">Findings / Recommendations</label>
                             <select name="findings_recommendations_dde" id="findings_recommendations_dde" class="form-control form-control-sm <?php echo !empty($data['findings_recommendations_dde_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['findings_recommendations_dde']; ?>"><?php echo $data['findings_recommendations_dde']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="Community Based Rehab">Community Based Rehab</option>
+                                          <option value="Intensive Outpatient Program">Intensive Outpatient Program</option>
+                                          <option value="Counseling">Counseling</option>
+                                          <option value="Treatment and Rehabilitation">Treatment and Rehabilitation</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['findings_recommendations_dde_err']; ?></span>
@@ -919,8 +929,15 @@
                      <label for="intervention_provided_recommendation">Intervention Provided / Recommendation</label>
                             <select name="intervention_provided_recommendation" id="intervention_provided_recommendation" class="form-control form-control-sm <?php echo !empty($data['intervention_provided_recommendation_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['intervention_provided_recommendation']; ?>"><?php echo $data['intervention_provided_recommendation']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="Drug Free">Drug Free</option>
+                                          <option value="Community Based Rehabilitation Program">Community Based Rehabilitation Program</option>
+                                          <option value="For Counseling">For Counseling</option>
+                                          <option value="For Drug Test">For Drug Test</option>
+                                          <option value="Intensive Outpatient Program">Intensive Outpatient Program</option>
+                                          <option value="For Legal Action">For Legal Action</option>
+                                          <option value="Psychiatrict Treatment">Psychiatrict Treatment</option>
+                                          <option value="Treatment and Rehabilitation">Treatment and Rehabilitation</option>
+                                          <option value="Ongoing Process DDE">Ongoing Process DDE</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['intervention_provided_recommendation_err']; ?></span>
@@ -929,9 +946,27 @@
               <div class="form-group col-md-4">
                      <label for="remarks">Remarks</label>
                             <select name="remarks" id="remarks" class="form-control form-control-sm <?php echo !empty($data['remarks_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['remarks']; ?>"><?php echo $data['remarks']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option selected value="<?php echo $data['remarks']; ?>"><?php echo $data['remarks']; ?></option>
+                                          <option value="Admitted to TAHANAN">Admitted to TAHANAN</option>
+                                          <option value="Released from TAHANAN">Released from TAHANAN</option>
+                                          <option value="Applied in Plea Bargaining">Applied in Plea Bargaining</option>
+                                          <option value="Completed CBRP but needs Drug Test">Completed CBRP but needs Drug Test</option>
+                                          <option value="Completed CBRP but positive in Drug Test">Completed CBRP but positive in Drug Test</option>
+                                          <option value="Drug Free">Drug Free</option>
+                                          <option value="For Rehabilitation">For Rehabilitation</option>
+                                          <option value="Graduated CBRP 1st Batch">Graduated CBRP 1<sup>st</sup> Batch</option>
+                                          <option value="Graduated CBRP 2nd Batch">Graduated CBRP 2<sup>nd</sup> Batch</option>
+                                          <option value="Graduated CBRP 3rd Batch">Graduated CBRP 3<sup>rd</sup> Batch</option>
+                                          <option value="Graduated CBRP 4th Batch">Graduated CBRP 4<sup>th</sup> Batch</option>
+                                          <option value="Graduated CBRP 5th Batch">Graduated CBRP 5<sup>th</sup> Batch</option>
+                                          <option value="Graduated CBRP 6th Batch">Graduated CBRP 6<sup>th</sup> Batch</option>
+                                          <option value="Graduated CBRP 7th Batch">Graduated CBRP 7<sup>th</sup> Batch</option>
+                                          <option value="Graduated CBRP 8th Batch">Graduated CBRP 8<sup>th</sup> Batch</option>
+                                          <option value="Graduated CBRP 9th Batch">Graduated CBRP 9<sup>th</sup> Batch</option>
+                                          <option value="For Legal Action">For Legal Action</option>
+                                          <option value="Rehab in Private">Rehab in Private</option>
+                                          <option value="No Intervenstion Needed">No Intervenstion Needed</option>
+                                          <option value="QCPD Profiled">QCPD Profiled</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['remarks_err']; ?></span>
@@ -940,9 +975,18 @@
               <div class="form-group col-md-4">
                      <label for="others_current_status">Others Current Status</label>
                             <select name="others_current_status" id="others_current_status" class="form-control form-control-sm <?php echo !empty($data['others_current_status_err']) ? 'is-invalid' : ''; ?>">
-                            <option selected value="<?php echo $data['others_current_status']; ?>"><?php echo $data['others_current_status']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option selected value="<?php echo $data['others_current_status']; ?>"><?php echo $data['others_current_status']; ?></option>
+                                          <option value="Inactive">Inactive</option>
+                                          <option value="Employment">Employment</option>
+                                          <option value="Applied in Plea Bargaining">Applied in Plea Bargaining</option>
+                                          <option value="Active User">Active User</option>
+                                          <option value="Arrested">Arrested</option>
+                                          <option value="Transferred Residence">Transferred Residence</option>
+                                          <option value="Medical Reasons">Medical Reasons</option>
+                                          <option value="Cannot Be Located">Cannot Be Located</option>
+                                          <option value="Deceased">Deceased</option>
+                                          <option value="For Reassessment">For Reassessment</option>
+                                          <option value="Refused to Undergo Rehab">Refused to Undergo Rehab</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['others_current_status_err']; ?></span>
@@ -957,8 +1001,8 @@
                      <label for="enrolled_in_sustainability">Enrolled in Sustainability Provided by LGU / Brgy. / Other Affiliation</label>
                             <select name="enrolled_in_sustainability" id="enrolled_in_sustainability" class="form-control form-control-sm <?php echo !empty($data['enrolled_in_sustainability_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['enrolled_in_sustainability']; ?>"><?php echo $data['enrolled_in_sustainability']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="Yes">Yes</option>
+                                          <option value="No">No</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['enrolled_in_sustainability_err']; ?></span>
@@ -968,8 +1012,8 @@
                      <label for="applied_in_plea_bargaining">Applied in Plea Bargaining</label>
                             <select name="applied_in_plea_bargaining" id="applied_in_plea_bargaining" class="form-control form-control-sm <?php echo !empty($data['applied_in_plea_bargaining_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['applied_in_plea_bargaining']; ?>"><?php echo $data['applied_in_plea_bargaining']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="Yes">Yes</option>
+                                          <option value="No">No</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['applied_in_plea_bargaining_err']; ?></span>
@@ -979,8 +1023,10 @@
                      <label for="plea_bargaining_remarks">Plea Bargaining Remarks</label>
                             <select name="plea_bargaining_remarks" id="plea_bargaining_remarks" class="form-control form-control-sm <?php echo !empty($data['plea_bargaining_remarks_err']) ? 'is-invalid' : ''; ?>">
                             <option selected value="<?php echo $data['plea_bargaining_remarks']; ?>"><?php echo $data['plea_bargaining_remarks']; ?></option>
-                                          <option value=""></option>
-                                          <option value=""></option>
+                                          <option value="Court Order for QCADAAC Counselling">Court Order for QCADAAC Counselling</option>
+                                          <option value="Court Order for QCADAAC Counselling (No Bail)">Court Order for QCADAAC Counselling (No Bail)</option>
+                                          <option value="No Court Order">No Court Order</option>
+                                          <option value="Finished Counselling">Finished Counselling</option>
                             </select>
 
                      <span class="invalid-feedback"><?php echo $data['plea_bargaining_remarks_err']; ?></span>

@@ -68,11 +68,36 @@ class Profiles extends Controller {
                             'area_where_drugs_are_being_abused' => trim($_POST['area_where_drugs_are_being_abused']),
                             'daily_expense_on_drugs' => trim($_POST['daily_expense_on_drugs']),
                             'source_of_drugs' => trim($_POST['source_of_drugs']),
-
                             'place_of_drug_source' => trim($_POST['place_of_drug_source']),
                             'primary_reason_for_using_drugs' => trim($_POST['primary_reason_for_using_drugs']),
                             'drug_used_for_the_last_12_months' => trim($_POST['drug_used_for_the_last_12_months']),
                             'date_of_drug_dependency_evaluation' => trim($_POST['date_of_drug_dependency_evaluation']),
+                            'name_of_physician_doh' => trim($_POST['name_of_physician_doh']),
+                            'findings_recommendations' => trim($_POST['findings_recommendations']),
+                            'facility_type' => trim($_POST['facility_type']),
+                            'intervention' => trim($_POST['intervention']),
+                            'risk_level_assist' => trim($_POST['risk_level_assist']),
+                            'date_of_screening_assist' => trim($_POST['date_of_screening_assist']),
+                            'name_of_social_worker' => trim($_POST['name_of_social_worker']),
+                            'referred_to_result_of_screening' => trim($_POST['referred_to_result_of_screening']),
+                            'assessment_result' => trim($_POST['assessment_result']),
+                            're_dde_date' => trim($_POST['re_dde_date']),
+                            'name_of_physician_dde' => trim($_POST['name_of_physician_dde']),
+                            'findings_recommendations_dde' => trim($_POST['findings_recommendations_dde']),
+                            'start_date' => trim($_POST['start_date']),
+                            'end_date' => trim($_POST['end_date']),
+                            'provided_by' => trim($_POST['provided_by']),
+                            'complete_flag' => trim($_POST['complete_flag']),
+
+                                 
+
+                            'intervention_provided_recommendation' => trim($_POST['intervention_provided_recommendation']),
+                            'remarks' => trim($_POST['remarks']),
+                            'others_current_status' => trim($_POST['others_current_status']),
+                            'enrolled_in_sustainability' => trim($_POST['enrolled_in_sustainability']),
+                            'applied_in_plea_bargaining' => trim($_POST['applied_in_plea_bargaining']),
+                            'plea_bargaining_remarks' => trim($_POST['plea_bargaining_remarks']),
+                            
 
                             'control_no_err' => '',
                             'type_of_admission_err' => '',
@@ -116,11 +141,30 @@ class Profiles extends Controller {
                             'area_where_drugs_are_being_abused_err' => '',
                             'daily_expense_on_drugs_err' => '',
                             'source_of_drugs_err' => '',
-
                             'place_of_drug_source_err' => '',
                             'primary_reason_for_using_drugs_err' => '',
                             'drug_used_for_the_last_12_months_err' => '',
                             'date_of_drug_dependency_evaluation_err' => '',
+
+                            'risk_level_assist_err' => '',
+                            'date_of_screening_assist_err' => '',
+                            'name_of_social_worker_err' => '',
+                            'referred_to_result_of_screening_err' => '',
+                            'assessment_result_err' => '',
+                            're_dde_date_err' => '',
+                            'name_of_physician_dde_err' => '',
+                            'findings_recommendations_dde_err' => '',
+                            'start_date_err' => '',
+                            'end_date_err' => '',
+                            'provided_by_err' => '',
+                            'complete_flag_err' => '',
+
+                            'intervention_provided_recommendation_err' => '',
+                            'remarks_err' => '',
+                            'others_current_status_err' => '',
+                            'enrolled_in_sustainability_err' => '',
+                            'applied_in_plea_bargaining_err' => '',
+                            'plea_bargaining_remarks_err' => '',
                      ];
 
                      if(empty($data['control_no'])){
@@ -299,7 +343,76 @@ class Profiles extends Controller {
                      if(empty($data['date_of_drug_dependency_evaluation'])){
                             $data['date_of_drug_dependency_evaluation_err'] = 'Please provide control number';
                      }
+                     if(empty($data['name_of_physician_doh'])){
+                            $data['name_of_physician_doh_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['findings_recommendations'])){
+                            $data['findings_recommendations_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['facility_type'])){
+                            $data['facility_type_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['intervention'])){
+                            $data['intervention_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['risk_level_assist'])){
+                            $data['risk_level_assist_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['date_of_screening_assist'])){
+                            $data['date_of_screening_assist_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['name_of_social_worker'])){
+                            $data['name_of_social_worker_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['referred_to_result_of_screening'])){
+                            $data['referred_to_result_of_screening_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['assessment_result'])){
+                            $data['assessment_result_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['re_dde_date'])){
+                            $data['re_dde_date_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['name_of_physician_dde'])){
+                            $data['name_of_physician_dde_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['findings_recommendations_dde'])){
+                            $data['findings_recommendations_dde_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['start_date'])){
+                            $data['start_date_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['end_date'])){
+                            $data['end_date_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['provided_by'])){
+                            $data['provided_by_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['complete_flag'])){
+                            $data['complete_flag_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['intervention_provided_recommendation'])){
+                            $data['intervention_provided_recommendation_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['remarks'])){
+                            $data['remarks_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['others_current_status'])){
+                            $data['others_current_status_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['enrolled_in_sustainability'])){
+                            $data['enrolled_in_sustainability_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['applied_in_plea_bargaining'])){
+                            $data['applied_in_plea_bargaining_err'] = 'Please provide control number';
+                     }
+                     if(empty($data['plea_bargaining_remarks'])){
+                            $data['plea_bargaining_remarks_err'] = 'Please provide control number';
+                     }
 
+                     
+                     
+                      
 
                      $existingProfile = $this->profileModel->existingProfile($data);
                      if($existingProfile){
@@ -309,7 +422,7 @@ class Profiles extends Controller {
                      }
 
 
-                     if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err']) && empty($data['occupation_prior_to_surrender_err']) && empty($data['date_of_last_attendance_at_school_err']) && empty($data['no_of_years_in_school_err']) && empty($data['highest_educational_attainment_err']) && empty($data['advocacy_partner_err']) && empty($data['religion_err']) && empty($data['nationality_err']) && empty($data['civil_status_err']) && empty($data['barangay_err']) && empty($data['district_err']) && empty($data['street_err']) && empty($data['house_no_err']) && empty($data['place_of_birth_err']) && empty($data['age_err']) && empty($data['date_of_birth_err']) && empty($data['aka_err']) && empty($data['sex_err']) && empty($data['extension_name_err']) && empty($data['estimated_monthly_inc_err']) && empty($data['living_arrangement_err']) && empty($data['ordinal_position_err']) && empty($data['number_of_siblings_err']) && empty($data['name_of_father_err']) && empty($data['occupation_of_father_err']) && empty($data['name_of_mother_err']) && empty($data['occupation_of_mother_err']) && empty($data['name_of_spouse_err']) && empty($data['occupation_of_spouse_err']) && empty($data['address_of_spouse_err']) && empty($data['age_at_first_drug_use_err']) && empty($data['date_of_last_drug_use_err']) && empty($data['length_of_drug_use_err']) && empty($data['frequency_of_drug_use_err']) && empty($data['source_of_drugs_err']) && empty($data['daily_expense_on_drugs_err']) && empty($data['area_where_drugs_are_being_abused_err']) && empty($data['means_to_support_drug_habbit_err']) && empty($data['place_of_drug_source_err']) && empty($data['primary_reason_for_using_drugs_err']) && empty($data['drug_used_for_the_last_12_months_err']) && empty($data['date_of_drug_dependency_evaluation_err']) && !$existingProfile){
+                     if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err']) && empty($data['occupation_prior_to_surrender_err']) && empty($data['date_of_last_attendance_at_school_err']) && empty($data['no_of_years_in_school_err']) && empty($data['highest_educational_attainment_err']) && empty($data['advocacy_partner_err']) && empty($data['religion_err']) && empty($data['nationality_err']) && empty($data['civil_status_err']) && empty($data['barangay_err']) && empty($data['district_err']) && empty($data['street_err']) && empty($data['house_no_err']) && empty($data['place_of_birth_err']) && empty($data['age_err']) && empty($data['date_of_birth_err']) && empty($data['aka_err']) && empty($data['sex_err']) && empty($data['extension_name_err']) && empty($data['estimated_monthly_inc_err']) && empty($data['living_arrangement_err']) && empty($data['ordinal_position_err']) && empty($data['number_of_siblings_err']) && empty($data['name_of_father_err']) && empty($data['occupation_of_father_err']) && empty($data['name_of_mother_err']) && empty($data['occupation_of_mother_err']) && empty($data['name_of_spouse_err']) && empty($data['occupation_of_spouse_err']) && empty($data['address_of_spouse_err']) && empty($data['age_at_first_drug_use_err']) && empty($data['date_of_last_drug_use_err']) && empty($data['length_of_drug_use_err']) && empty($data['frequency_of_drug_use_err']) && empty($data['source_of_drugs_err']) && empty($data['daily_expense_on_drugs_err']) && empty($data['area_where_drugs_are_being_abused_err']) && empty($data['means_to_support_drug_habbit_err']) && empty($data['place_of_drug_source_err']) && empty($data['primary_reason_for_using_drugs_err']) && empty($data['drug_used_for_the_last_12_months_err']) && empty($data['date_of_drug_dependency_evaluation_err']) && empty($data['name_of_physician_doh_err']) && empty($data['findings_recommendations_err']) && empty($data['facility_type_err']) && empty($data['intervention_err']) && empty($data['risk_level_assist_err']) && empty($data['date_of_screening_assist_err']) && empty($data['name_of_social_worker_err']) && empty($data['referred_to_result_of_screening_err']) && empty($data['assessment_result_err']) && empty($data['re_dde_date_err']) && empty($data['name_of_physician_dde_err']) && empty($data['findings_recommendations_dde_err']) && empty($data['start_date_err']) && empty($data['end_date_err']) && empty($data['provided_by_err']) && empty($data['complete_flag_err']) && empty($data['intervention_provided_recommendation_err']) && empty($data['remarks_err']) && empty($data['others_current_status_err']) && empty($data['enrolled_in_sustainability_err']) && empty($data['applied_in_plea_bargaining_err']) && empty($data['plea_bargaining_remarks_err']) && !$existingProfile){
                             
                             // THIS IS WHERE U FETCH USERID and BRGY INFO TO ADD IN CONTROL NUMBER
                             if($this->profileModel->createProfile($data)){
@@ -369,11 +482,36 @@ class Profiles extends Controller {
                             'area_where_drugs_are_being_abused' => '',
                             'daily_expense_on_drugs' => '',
                             'source_of_drugs' => '',
-
                             'place_of_drug_source' => '',
                             'primary_reason_for_using_drugs' => '',
                             'drug_used_for_the_last_12_months' => '',
                             'date_of_drug_dependency_evaluation' => '',
+                            'name_of_physician_doh' => '',
+                            'findings_recommendations' => '',
+                            'facility_type' => '',
+                            'intervention' => '',
+
+                            
+                            'risk_level_assist' => '',
+                            'date_of_screening_assist' => '',
+                            'name_of_social_worker' => '',
+                            'referred_to_result_of_screening' => '',
+                            'assessment_result' => '',
+                            're_dde_date' => '',
+                            'name_of_physician_dde' => '',
+                            'findings_recommendations_dde' => '',
+                            'start_date' => '',
+                            'end_date' => '',
+                            'provided_by' => '',
+                            'complete_flag' => '',
+
+                            'intervention_provided_recommendation' => '',
+                            'remarks' => '',
+                            'others_current_status' => '',
+                            'enrolled_in_sustainability' => '',
+                            'applied_in_plea_bargaining' => '',
+                            'plea_bargaining_remarks' => '',
+                     
 
                             'control_no_err' => '',
                             'type_of_admission_err' => '',
@@ -417,11 +555,34 @@ class Profiles extends Controller {
                             'area_where_drugs_are_being_abused_err' => '',
                             'daily_expense_on_drugs_err' => '',
                             'source_of_drugs_err' => '',
-
                             'place_of_drug_source_err' => '',
                             'primary_reason_for_using_drugs_err' => '',
                             'drug_used_for_the_last_12_months_err' => '',
                             'date_of_drug_dependency_evaluation_err' => '',
+                            'name_of_physician_doh_err' => '',
+                            'findings_recommendations_err' => '',
+                            'facility_type_err' => '',
+                            'intervention_err' => '',
+
+                            'risk_level_assist_err' => '',
+                            'date_of_screening_assist_err' => '',
+                            'name_of_social_worker_err' => '',
+                            'referred_to_result_of_screening_err' => '',
+                            'assessment_result_err' => '',
+                            're_dde_date_err' => '',
+                            'name_of_physician_dde_err' => '',
+                            'findings_recommendations_dde_err' => '',
+                            'start_date_err' => '',
+                            'end_date_err' => '',
+                            'provided_by_err' => '',
+                            'complete_flag_err' => '',
+
+                            'intervention_provided_recommendation_err' => '',
+                            'remarks_err' => '',
+                            'others_current_status_err' => '',
+                            'enrolled_in_sustainability_err' => '',
+                            'applied_in_plea_bargaining_err' => '',
+                            'plea_bargaining_remarks_err' => '',
                      ];
 
                      $this->view('profiles/createProfile', $data);
