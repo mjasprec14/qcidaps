@@ -576,8 +576,9 @@ class Profiles extends Controller {
 
                      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                      $target = 'img/'.basename($_FILES['image']['name']);
-
+                     
                      $data = [
+                            'id' => $id,
                             'image' => $_FILES['image']['name'],
                             'user_id' => $_SESSION['user_id'],
                             'control_no' => trim($_POST['control_no']),
@@ -713,7 +714,7 @@ class Profiles extends Controller {
                             'applied_in_plea_bargaining_err' => '',
                             'plea_bargaining_remarks_err' => '',
                      ];
-
+                     
                      if(empty($data['control_no'])){
                             $data['control_no_err'] = 'Please provide control number';
                      }
@@ -956,7 +957,7 @@ class Profiles extends Controller {
                      if(empty($data['plea_bargaining_remarks'])){
                             $data['plea_bargaining_remarks_err'] = 'Please provide required field';
                      }  
-
+                     
                      if(empty($data['control_no_err']) && empty($data['last_name_err']) && empty($data['first_name_err']) && empty($data['middle_name_err']) && empty($data['occupation_prior_to_surrender_err']) && empty($data['date_of_last_attendance_at_school_err']) && empty($data['no_of_years_in_school_err']) && empty($data['highest_educational_attainment_err']) && empty($data['advocacy_partner_err']) && empty($data['religion_err']) && empty($data['nationality_err']) && empty($data['civil_status_err']) && empty($data['barangay_err']) && empty($data['district_err']) && empty($data['street_err']) && empty($data['house_no_err']) && empty($data['place_of_birth_err']) && empty($data['age_err']) && empty($data['date_of_birth_err']) && empty($data['aka_err']) && empty($data['sex_err']) && empty($data['extension_name_err']) && empty($data['estimated_monthly_inc_err']) && empty($data['living_arrangement_err']) && empty($data['ordinal_position_err']) && empty($data['number_of_siblings_err']) && empty($data['name_of_father_err']) && empty($data['occupation_of_father_err']) && empty($data['name_of_mother_err']) && empty($data['occupation_of_mother_err']) && empty($data['name_of_spouse_err']) && empty($data['occupation_of_spouse_err']) && empty($data['address_of_spouse_err']) && empty($data['age_at_first_drug_use_err']) && empty($data['date_of_last_drug_use_err']) && empty($data['length_of_drug_use_err']) && empty($data['frequency_of_drug_use_err']) && empty($data['source_of_drugs_err']) && empty($data['daily_expense_on_drugs_err']) && empty($data['area_where_drugs_are_being_abused_err']) && empty($data['means_to_support_drug_habbit_err']) && empty($data['place_of_drug_source_err']) && empty($data['primary_reason_for_using_drugs_err']) && empty($data['drug_used_for_the_last_12_months_err']) && empty($data['date_of_drug_dependency_evaluation_err']) && empty($data['name_of_physician_doh_err']) && empty($data['findings_recommendations_err']) && empty($data['facility_type_err']) && empty($data['intervention_err']) && empty($data['risk_level_assist_err']) && empty($data['date_of_screening_assist_err']) && empty($data['name_of_social_worker_err']) && empty($data['referred_to_result_of_screening_err']) && empty($data['assessment_result_err']) && empty($data['re_dde_date_err']) && empty($data['name_of_physician_dde_err']) && empty($data['findings_recommendations_dde_err']) && empty($data['start_date_err']) && empty($data['end_date_err']) && empty($data['provided_by_err']) && empty($data['complete_flag_err']) && empty($data['intervention_provided_recommendation_err']) && empty($data['remarks_err']) && empty($data['others_current_status_err']) && empty($data['enrolled_in_sustainability_err']) && empty($data['applied_in_plea_bargaining_err']) && empty($data['plea_bargaining_remarks_err'])){
     
                             // THIS IS WHERE U FETCH USERID and BRGY INFO TO ADD IN CONTROL NUMBER

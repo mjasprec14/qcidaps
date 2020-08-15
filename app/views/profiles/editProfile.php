@@ -4,10 +4,10 @@
 
 <h4 class="mb-3 mt-4">Update profile</h4>
 
-
+<?php echo $data['id']; ?>
 <div class="row">
        <div class="col-md-12 mx-auto">
-              <form action="<?php echo URLROOT; ?>/profiles/editProfile/<?php echo $data['id']; ?>" method="post">
+              <form action="<?php echo URLROOT; ?>/profiles/editProfile/<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
               <div class="form-row">           
                             <div class="form-group col-md-3">
                                    <img src="<?php echo URLROOT; ?>/img/<?php echo $data['image']; ?>" height="200px" width="250px" alt="" class="imgPreview" >
