@@ -13,7 +13,7 @@
 
               <div class="form-row">           
                             <div class="form-group col-md-3">
-                                   <img height="200px" width="250px" alt="" class="imgPreview">
+                                   <img height="200px" width="250px" alt="" class="imgPreview" >
                                    <input type="file" name="image" class="form-control-file mt-2 " id="image" onchange="imgPreview(event)">  
                             </div>
 
